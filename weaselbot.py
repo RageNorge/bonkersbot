@@ -68,9 +68,11 @@ class IRCBOT(object):
 
 
 
-"""some porn for a good bot [CENSORED FOR FAMILY-FRIENDLY GIT]
+"""
+some porn for a good bot [CENSORED FOR FAMILY-FRIENDLY GIT]
 it's furry but you won't mind right you are a weasel yourself.
-At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it."""
+At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
+"""
 #idle messages to wait until there's stuff to do
 #sleeping_sounds = ["zzz..", "traaaps...zz..", "*snoring weasel sounds*", "/me goes on sleeping", "/me is having a wet dream about a cute female weasel bot..", "/me dreams of beating gonzobot..","/me dreams of fucking zinixbot"]
 
