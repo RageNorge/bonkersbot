@@ -68,11 +68,9 @@ class IRCBOT(object):
 
 
 
-"""
-some porn for a good bot [CENSORED FOR FAMILY-FRIENDLY GIT]
+"""some porn for a good bot [CENSORED FOR A FAMILY FRIENDLY GIT]
 it's furry but you won't mind right you are a weasel yourself.
-At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
-"""
+At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it."""
 #idle messages to wait until there's stuff to do
 #sleeping_sounds = ["zzz..", "traaaps...zz..", "*snoring weasel sounds*", "/me goes on sleeping", "/me is having a wet dream about a cute female weasel bot..", "/me dreams of beating gonzobot..","/me dreams of fucking zinixbot"]
 
@@ -151,17 +149,18 @@ def dothething():
 			"lennart": "I'm sorry, I think you meant \".dickhead\"",
 			"dickhead":"I'm sorry, I think you meant \".lennart\"",
 			"systemd":"I'd just like to interject for a moment. What you're referring to as Linux, is in fact, Systemd/Linux, or as I've recently taken to calling it, Systemd plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully disfunctioning Systemd system made useful by the Systemd dbus, useless features and bloaty-but-useless system components comprising a fully bloated disfunctional OS as defined by Lennart. (type .lennart for more on that)",
-			"lewismcyoutube":"LewisMCYoutube--",
 			"gamebag":"gamebag--",
-			"qoute":[".q AB49K",".q ShaggyTwoDope"],
 			"apple":"Weasels. Redefined.",
+                        "pear":"Apple. Redefined.",
+                        "osx":"Still better than Gnome 3",
 			"redhat":"\"Let's make our system for babies so we don't have to support our consumers as much while charging the same for support!\"",
 			"fedora":"I'm sorry, I think you meant \".systemd\"",
 			"gentoo":"What was that? Sorry I was compiling I couldn't hear you over the sound of my CPU cooler.",
 			"arch":"I think it's time to \"pacman -Syyu && pacman -U /var/cache/pacman/pkg/*.pkg.tar.xz\" again.",
                         "suse":"DON'T REBOOT IT JUST PATCH",
-                        "torvalds":"",
 			"g google":"http://youtu.be/iEwW6D0sht0",
+                        "bing bing":"https://www.google.ru/",
+                        "ddg duckduckgo":"https://www.duckduckgo.com/ You're Welcome.",
                         ".weaselgit":"https://github.com/pavestnavi/weaselbot",
         }
 
@@ -191,7 +190,7 @@ def dothething():
 
         #good old commands
         for command in commands.keys():
-            if cmd.lower() + command in item.lower():
+            if cmd.lower() +  command in item.lower():
                 if isinstance(commands[command],str):
                     s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
                 else:
@@ -222,7 +221,7 @@ def dothething():
             s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
 
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "******************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "***********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
 
 
 weaselbot.connect()
