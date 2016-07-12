@@ -68,7 +68,7 @@ class IRCBOT(object):
 
 
 
-"""some porn for a good bot http://i.imgur.com/W2hfUBC.jpg
+"""some porn for a good bot [LINK REMOVED FOR CHRISTIAN GIT]
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it."""
 #idle messages to wait until there's stuff to do
@@ -142,6 +142,8 @@ def dothething():
         wifox = "stop that weaselbot"
         wifox2 = "take a nap weaselbot"
         wifox3 = "i am your master"
+        phase1 = "weaselbot"
+        phase2 = "serve me"
         ubuu = ["i should install ubuntu", "should i install ubuntu", "i should install mint", "should i install mint"]
         message = ""
         for key in bullshit.keys():
@@ -171,6 +173,11 @@ def dothething():
             s.send(str.encode("privmsg " + cchannel + " YES SIR, AND A KIND ONE, SIR!\r\n"))
         if "PRIVMSG " + cchannel + " :!weasel" in item:
             s.send(str.encode("privmsg " + cchannel + " The whole point of this bot is to shitpost as much as possible without being considered spammy or annoying. It is also there to help you shitpost more efficiently. Do dank memes and if they're dank enough and I don't respond to them, complain to weabot and if you're aggressive enough on his butthole I'll respond next time.\r\n"))
+        if TEMPUSR == "Phase" and phase1 in item.lower():
+            s.send(str.encode("privmsg " + cchannel + " YOU CALLED ME MASTER? I AM HERE TO SERVE."))
+        if TEMPUSR == "Phase" and phase2 in item.lower():
+            s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes \x01"))
+            s.send(str.encode("privmsg " + cchannel + " But... Sir... Here? In front of everybody?"))
 
 
 
