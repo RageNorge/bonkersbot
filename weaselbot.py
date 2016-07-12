@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/local/bin/python3
 # coding:utf-8
 import socket
 import os
@@ -6,7 +6,7 @@ import ssl
 from time import sleep
 from datetime import datetime
 from random import randint
-                                #THIS BOT IS LICENSED UNDER THE BSD LICENSE
+                            #THIS BOT IS LICENSED UNDER THE BSD LICENSE
 ###FEEL FREE TO MAKE IT PROPRIETARY AND REPACKAGE IT IN A NICE LITTLE GOLDEN BOX TO THEN SELL IT TO ME
 """
 This bot was heavily inspired by zinixbot, thanks to zinn, unixbird and alinea for making it.
@@ -68,11 +68,13 @@ class IRCBOT(object):
 
 
 
-"""some porn for a good bot [LINK REMOVED FOR CHRISTIAN GIT]
+"""some porn for a good bot [CENSORED FOR FAMILY-FRIENDLY GIT]
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it."""
 #idle messages to wait until there's stuff to do
 #sleeping_sounds = ["zzz..", "traaaps...zz..", "*snoring weasel sounds*", "/me goes on sleeping", "/me is having a wet dream about a cute female weasel bot..", "/me dreams of beating gonzobot..","/me dreams of fucking zinixbot"]
+
+#functions for more complex commands will go here
 
 
 def dothething():
@@ -126,6 +128,7 @@ def dothething():
             "weaselbot: you alive": "yeeee",
             "weaselbot: wanna cyber":"YESYESYESYES YEEEEEEEEEEEEEEEEEEEEEEEEEEEEES",
             "wanna cyber weaselbot":"YESYESYESYES YEEEEEEEEEEEEEEEEEEEEEEEEEEEEES",
+            "kisses weaselbot":"\x01ACTION kisses %s\x01" % TEMPUSR,
             "weaselbot++":"%s++" % TEMPUSR,
             "who did 9/11":["It was the Nazis with the help of RMS","It was Osama Bin Laden","It was George W. Bush","It was Nixon, he lied about being dead","It was Ronald Reagan, he thought there were communists in the towers","ur mom","The CIA","The Cuban missile crisis","Snoop Dogg did it","It was whitephoenix","The whole blue man group","It was RMS, he came in an airplane's bathroom and his sperms took on a life of their own, escaped the plane to become planes of their own WITHOUT the help of proprietary software OR hardware. GNU planes did 9/11","It was Rolfe and her masculine penis which was wearing a tutu at the time that's why it was confused for a feminine plane"],
             "saturday night and the server's alright":"DON'T REBOOT IT JUST PATCH!",
@@ -133,8 +136,31 @@ def dothething():
             "i love fascism":"\x01ACTION high fives %s in the face and then does it a few more times\x01" % TEMPUSR,
             "thank you weaselbot":"No problem, man",
             "thanks weaselbot":"No problem, man",
+			"who's gamebag":"Just an old troll",
+			"who's shaggy":"Just an old troll",
             "weaselbot: worship me":"No. You're not Winter_Fox, fuck off.",
             "weaselbot: you're not my friend":"I wasn't talking to you, shitface"
+        }
+
+        #Variables that should be used with more complex commands will go here
+
+        commands = {
+			"fascists": "https://www.youtube.com/watch?v=HK2lNuiD7gM",
+			"lennart": "I'm sorry, I think you meant \".dickhead\"",
+			"dickhead":"I'm sorry, I think you meant \".lennart\"",
+			"systemd":"I'd just like to interject for a moment. What you're referring to as Linux, is in fact, Systemd/Linux, or as I've recently taken to calling it, Systemd plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully disfunctioning Systemd system made useful by the Systemd dbus, useless features and bloaty-but-useless system components comprising a fully bloated disfunctional OS as defined by Lennart. (type .lennart for more on that)",
+			"lewismcyoutube":"LewisMCYoutube--",
+			"gamebag":"gamebag--",
+			"qoute":[".q AB49K",".q ShaggyTwoDope"],
+			"apple":"Weasels. Redefined.",
+			"redhat":"\"Let's make our system for babies so we don't have to support our consumers as much while charging the same for support!\"",
+			"fedora":"I'm sorry, I think you meant \".systemd\"",
+			"gentoo":"What was that? Sorry I was compiling I couldn't hear you over the sound of my CPU cooler.",
+			"arch":"I think it's time to \"pacman -Syyu && pacman -U /var/cache/pacman/pkg/*.pkg.tar.xz\" again.",
+                        "suse":"DON'T REBOOT IT JUST PATCH",
+                        "torvalds":"",
+			"g google":"http://youtu.be/iEwW6D0sht0",
+                        ".weaselgit":"https://github.com/pavestnavi/weaselbot",
         }
 
         #commands that wouldn't fit in the dictionary
@@ -146,6 +172,9 @@ def dothething():
         phase2 = "serve me"
         ubuu = ["i should install ubuntu", "should i install ubuntu", "i should install mint", "should i install mint"]
         message = ""
+        cmd = "PRIVMSG " + cchannel + " :."
+
+        #Good old bullshit input/output
         for key in bullshit.keys():
             if key in item.lower():
                 if isinstance(bullshit[key],str):
@@ -158,6 +187,17 @@ def dothething():
                     message = "privmsg " + cchannel + " " + bullshit[key][x] + "\r\n"
                     s.send(str.encode(message))
 
+        #good old commands
+        for command in commands.keys():
+            if cmd.lower() + command in item.lower():
+                if isinstance(commands[command],str):
+                    s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
+                else:
+                    x = randint(0,len(commands[command]) - 1)
+                    s.send(str.encode("privmsg " + cchannel + " " + commands[command][x] + "\r\n"))
+
+
+        #misc/special snowflakes
         if TEMPUSR == "gonzobot" and gonzo in item:
             sleep(1)
             s.send(str.encode("privmsg " + cchannel + " " + gonzo + "\r\n"))
@@ -174,27 +214,26 @@ def dothething():
         if "PRIVMSG " + cchannel + " :!weasel" in item:
             s.send(str.encode("privmsg " + cchannel + " The whole point of this bot is to shitpost as much as possible without being considered spammy or annoying. It is also there to help you shitpost more efficiently. Do dank memes and if they're dank enough and I don't respond to them, complain to weabot and if you're aggressive enough on his butthole I'll respond next time.\r\n"))
         if TEMPUSR == "Phase" and phase1 in item.lower():
-            s.send(str.encode("privmsg " + cchannel + " YOU CALLED ME MASTER? I AM HERE TO SERVE."))
+            s.send(str.encode("privmsg " + cchannel + " YOU CALLED ME MASTER? I AM HERE TO SERVE.\r\n"))
         if TEMPUSR == "Phase" and phase2 in item.lower():
-            s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes \x01"))
-            s.send(str.encode("privmsg " + cchannel + " But... Sir... Here? In front of everybody?"))
+            s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes\x01\r\n"))
+            s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
 
 
+weaselbot = IRCBOT("weaselbot", "weaselbot", "******************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "**********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace ##lmg")
 
-
-ugotzinnd = 0
 weaselbot.connect()
-while ugotzinnd <= 5:
-    sleep(3)
-    line = s.recv(2048).decode("utf-8")
-    line = line.rstrip()
-    line = line.split("\n")
-    weaselbot.pong()
-    weaselbot.identify()
-    weaselbot.join_channels()
-    ugotzinnd += 1
+times = 0
+while times != 5:
+	sleep(3)
+	line = s.recv(2048).decode("utf-8")
+	line = line.rstrip()
+	line = line.split("\n")
+	weaselbot.pong()
+	weaselbot.identify()
+	weaselbot.join_channels()
+	times += 1
 
 
 print("greeting..")
