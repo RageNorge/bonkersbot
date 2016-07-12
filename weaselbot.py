@@ -138,8 +138,8 @@ def dothething():
             "i love fascism":"\x01ACTION high fives %s in the face and then does it a few more times\x01" % TEMPUSR,
             "thank you weaselbot":"No problem, man",
             "thanks weaselbot":"No problem, man",
-			"who's gamebag":"Just an old troll",
-			"who's shaggy":"Just an old troll",
+	    "who's gamebag":"Just an old troll",
+	    "who's shaggy":"Just an old troll",
             "weaselbot: worship me":"No. You're not Winter_Fox, fuck off.",
             "weaselbot: you're not my friend":"I wasn't talking to you, shitface"
         }
@@ -147,23 +147,23 @@ def dothething():
         #Variables that should be used with more complex commands will go here
 
         commands = {
-			"fascists": "https://www.youtube.com/watch?v=HK2lNuiD7gM",
-			"lennart": "I'm sorry, I think you meant \".dickhead\"",
-			"dickhead":"I'm sorry, I think you meant \".lennart\"",
-			"systemd":"I'd just like to interject for a moment. What you're referring to as Linux, is in fact, Systemd/Linux, or as I've recently taken to calling it, Systemd plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully disfunctioning Systemd system made useful by the Systemd dbus, useless features and bloaty-but-useless system components comprising a fully bloated disfunctional OS as defined by Lennart. (type .lennart for more on that)",
-			"gamebag":"gamebag--",
-			"apple":"Weasels. Redefined.",
-                        "pear":"Apple. Redefined.",
-                        "osx":"Still better than Gnome 3",
-			"redhat":"\"Let's make our system for babies so we don't have to support our consumers as much while charging the same for support!\"",
-			"fedora":"I'm sorry, I think you meant \".systemd\"",
-			"gentoo":"What was that? Sorry I was compiling I couldn't hear you over the sound of my CPU cooler.",
-			"arch":"I think it's time to \"pacman -Syyu && pacman -U /var/cache/pacman/pkg/*.pkg.tar.xz\" again.",
-                        "suse":"DON'T REBOOT IT JUST PATCH",
-			"g google":"http://youtu.be/iEwW6D0sht0",
-                        "bing bing":"https://www.google.ru/",
-                        "ddg duckduckgo":"https://www.duckduckgo.com/ You're Welcome.",
-                        ".weaselgit":"https://github.com/pavestnavi/weaselbot",
+		"fascists": "https://www.youtube.com/watch?v=HK2lNuiD7gM",
+		"lennart": "I'm sorry, I think you meant \".dickhead\"",
+		"dickhead":"I'm sorry, I think you meant \".lennart\"",
+		"systemd":"I'd just like to interject for a moment. What you're referring to as Linux, is in fact, Systemd/Linux, or as I've recently taken to calling it, Systemd plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully disfunctioning Systemd system made useful by the Systemd dbus, useless features and bloaty-but-useless system components comprising a fully bloated disfunctional OS as defined by Lennart. (type .lennart for more on that)",
+		"gamebag":"gamebag--",
+		"apple":"Weasels. Redefined.",
+                "pear":"Apple. Redefined.",
+                "osx":"Still better than Gnome 3",
+		"redhat":"\"Let's make our system for babies so we don't have to support our consumers as much while charging the same for support!\"",
+		"fedora":"I'm sorry, I think you meant \".systemd\"",
+		"gentoo":"What was that? Sorry I was compiling I couldn't hear you over the sound of my CPU cooler.",
+		"arch":"I think it's time to \"pacman -Syyu && pacman -U /var/cache/pacman/pkg/*.pkg.tar.xz\" again.",
+                "suse":"DON'T REBOOT IT JUST PATCH",
+		"g google":"http://youtu.be/iEwW6D0sht0",
+                "bing bing":"https://www.google.ru/",
+                "ddg duckduckgo":"https://www.duckduckgo.com/ You're Welcome.",
+                "weaselgit":"https://github.com/pavestnavi/weaselbot",
         }
 
         #commands that wouldn't fit in the dictionary
