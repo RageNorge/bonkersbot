@@ -6,7 +6,7 @@ import ssl
 from time import sleep
 from datetime import datetime
 from random import randint
-                            #THIS BOT IS LICENSED UNDER THE BSD LICENSE
+                                #THIS BOT IS LICENSED UNDER THE BSD LICENSE
 ###FEEL FREE TO MAKE IT PROPRIETARY AND REPACKAGE IT IN A NICE LITTLE GOLDEN BOX TO THEN SELL IT TO ME
 """
 This bot was heavily inspired by zinixbot, thanks to zinn, unixbird and alinea for making it.
@@ -69,7 +69,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED FOR A FAMILY FRIENDLY GIT]
+some porn for a good bot [CENSORED FOR FAMILY FRIENDLY GIT]
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -138,8 +138,8 @@ def dothething():
             "i love fascism":"\x01ACTION high fives %s in the face and then does it a few more times\x01" % TEMPUSR,
             "thank you weaselbot":"No problem, man",
             "thanks weaselbot":"No problem, man",
-	    "who's gamebag":"Just an old troll",
-	    "who's shaggy":"Just an old troll",
+			"who's gamebag":"Just an old troll",
+			"who's shaggy":"Just an old troll",
             "weaselbot: worship me":"No. You're not Winter_Fox, fuck off.",
             "weaselbot: you're not my friend":"I wasn't talking to you, shitface"
         }
@@ -147,23 +147,65 @@ def dothething():
         #Variables that should be used with more complex commands will go here
 
         commands = {
-		"fascists": "https://www.youtube.com/watch?v=HK2lNuiD7gM",
-		"lennart": "I'm sorry, I think you meant \".dickhead\"",
-		"dickhead":"I'm sorry, I think you meant \".lennart\"",
-		"systemd":"I'd just like to interject for a moment. What you're referring to as Linux, is in fact, Systemd/Linux, or as I've recently taken to calling it, Systemd plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully disfunctioning Systemd system made useful by the Systemd dbus, useless features and bloaty-but-useless system components comprising a fully bloated disfunctional OS as defined by Lennart. (type .lennart for more on that)",
-		"gamebag":"gamebag--",
-		"apple":"Weasels. Redefined.",
-                "pear":"Apple. Redefined.",
-                "osx":"Still better than Gnome 3",
-		"redhat":"\"Let's make our system for babies so we don't have to support our consumers as much while charging the same for support!\"",
-		"fedora":"I'm sorry, I think you meant \".systemd\"",
-		"gentoo":"What was that? Sorry I was compiling I couldn't hear you over the sound of my CPU cooler.",
-		"arch":"I think it's time to \"pacman -Syyu && pacman -U /var/cache/pacman/pkg/*.pkg.tar.xz\" again.",
-                "suse":"DON'T REBOOT IT JUST PATCH",
-		"g google":"http://youtu.be/iEwW6D0sht0",
-                "bing bing":"https://www.google.ru/",
-                "ddg duckduckgo":"https://www.duckduckgo.com/ You're Welcome.",
-                "weaselgit":"https://github.com/pavestnavi/weaselbot",
+			"fascists": "https://www.youtube.com/watch?v=HK2lNuiD7gM",
+			"lennart": "I'm sorry, I think you meant \".dickhead\"",
+			"dickhead":"I'm sorry, I think you meant \".lennart\"",
+			"systemd":"I'd just like to interject for a moment. What you're referring to as Linux, is in fact, Systemd/Linux, or as I've recently taken to calling it, Systemd plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully disfunctioning Systemd system made useful by the Systemd dbus, useless features and bloaty-but-useless system components comprising a fully bloated disfunctional OS as defined by Lennart. (type .lennart for more on that)",
+			"gamebag":"gamebag--",
+			"apple":"Weasels. Redefined.",
+                        "pear":"Apple. Redefined.",
+                        "osx":"Still better than Gnome 3",
+			"redhat":"\"Let's make our system for babies so we don't have to support our consumers as much while charging the same for support!\"",
+			"fedora":"I'm sorry, I think you meant \".systemd\"",
+			"gentoo":"What was that? Sorry I was compiling I couldn't hear you over the sound of my CPU cooler.",
+			"arch":"I think it's time to \"pacman -Syyu && pacman -U /var/cache/pacman/pkg/*.pkg.tar.xz\" again.",
+                        "manjaro":"great if you want to live in the past I guess..",
+                        "antergos":"Babby's first arch install",
+                        "suse":"\x01ACTION starts humming uptown funk\x01",
+                        "ubuntu":"babby's first distro",
+                        "mint":"when it breaks that means you're ready to upgrade",
+                        "debian":"Do you smell that? It smells like old, rotting packages...",
+                        "slackware":"This command is unsupported as I can't find its dependencies anywhere",
+                        "netbsd":"medfly pls go",
+                        "opensuse":"I'd just  like to interject for a moment. What you're referring to as OpenSUSE, is in fact, Yast/Systemd/OpenSUSE, or as I've recently taken to calling it, Yast plus Systemd plus OpenSUSE. OpenSUSE is not an operating system unto itself but rather another open component of a fully functioning Yast Systemd made useful by the Systemd corelibs, useless features and Yast's bloaty and buggy system components comprising a fully functional OS as defined by Systemd.",
+                        "enlightenment":"Oh, you mean that old, buggy window manager that tries to be an OS?",
+                        "kali":"Look mommy I'm a hacker!",
+                        "blackarch":"Look daddy I'm a hacker!",
+                        "steamos":"Let's pretend that this ubuntu fork is any different from all the others in its ability to become a gaming platform!",
+                        "redstar":"The only good distro (please don't kill me oh great leader)",
+                        "centos":"OpenREDHAT",
+                        "kubuntu":"Just use .ubuntu instead. If you want me to review the goddamn DEs try them instead",
+                        "xubuntu":"Just use .ubuntu instead. If you want me to review the goddamn DEs try them instead",
+                        "lubuntu":"Just use .ubuntu instead. If you want me to review the goddamn DEs try them instead",
+                        "puppy":"woof!",
+                        "lfs":"Entry-level distros need no mentions.",
+                        "plasma":"It's fuckin KDE",
+                        "kde":"Windows Lite™",
+                        "gnome":"MacOS Lite™",
+                        "pantheon":"Basically a reskin of Gnome 3",
+                        "xfce":"M8 it's as outdated as your grandpa's dick",
+                        "mate":"NO I WON'T LET GO!!!!!!",
+                        "lxde":"I have more ram than I'll ever need PLUS swap but I still want to call this OpenBox setup with a panel my daily DE",
+                        "lxqt":"LXDE on a less shitty library",
+                        "i3":"Look ma no hands!",
+                        "bspwm":"Oh was that? I was trying to figure out my config files...",
+                        "openbox":">Using a floating window manager outside of a DE",
+                        "cde":"The only good DE",
+                        "twm":"The only good wm",
+                        "dwm":"like i3 but actually good",
+                        "aqua":"See \".apple\"",
+                        "unity":"Turning people away from Linux since 2010!",
+                        "cinnamon":"If Gnome 3 was like gnome fans expected before losing their hard on.",
+                        "gnu/hurd":"WE'LL FINISH IT I SWEAR! -RMS, Prime Minister of the world, 2038",
+                        "hurd":"WE'LL FINISH IT I SWEAR! -RMS, Prime Minister of the world, 2038",
+                        "emacs":"The best operating system ever made if it weren't for its lack of a decent text editor",
+                        "windows":"The only good linux distribution",
+                        "reactos":"Wine: The OS",
+                        "torvalds":"https://youtu.be/IVpOyKCNZYw?t=1m45s",
+			"g google":"http://youtu.be/iEwW6D0sht0",
+                        "bing bing":"https://www.google.ru/",
+                        "ddg duckduckgo":"https://www.duckduckgo.com/ You're Welcome.",
+                        "weaselgit":"https://github.com/pavestnavi/weaselbot",
         }
 
         #commands that wouldn't fit in the dictionary
@@ -223,7 +265,7 @@ def dothething():
             s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
 
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "***********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "*************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
 
 
 weaselbot.connect()
