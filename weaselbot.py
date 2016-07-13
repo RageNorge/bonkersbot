@@ -147,7 +147,7 @@ def dothething():
         #Variables that should be used with more complex commands will go here
 
         commands = {
-			"fascists": "https://www.youtube.com/watch?v=HK2lNuiD7gM",
+			"fascists": "EMERGENCY RED ARMY INCOMING: https://www.youtube.com/watch?v=HK2lNuiD7gM",
 			"lennart": "I'm sorry, I think you meant \".dickhead\"",
 			"dickhead":"I'm sorry, I think you meant \".lennart\"",
 			"systemd":"I'd just like to interject for a moment. What you're referring to as Linux, is in fact, Systemd/Linux, or as I've recently taken to calling it, Systemd plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully disfunctioning Systemd system made useful by the Systemd dbus, useless features and bloaty-but-useless system components comprising a fully bloated disfunctional OS as defined by Lennart. (type .lennart for more on that)",
