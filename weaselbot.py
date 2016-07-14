@@ -3,6 +3,7 @@
 import socket
 import os
 import ssl
+import sys
 from time import sleep
 from datetime import datetime
 from random import randint
@@ -131,7 +132,6 @@ def dothething():
             "weaselbot: wanna cyber":"YESYESYESYES YEEEEEEEEEEEEEEEEEEEEEEEEEEEEES",
             "wanna cyber weaselbot":"YESYESYESYES YEEEEEEEEEEEEEEEEEEEEEEEEEEEEES",
             "kisses weaselbot":"\x01ACTION kisses %s\x01" % TEMPUSR,
-            "weaselbot++":"%s++" % TEMPUSR,
             "who did 9/11":["It was the Nazis with the help of RMS","It was Osama Bin Laden","It was George W. Bush","It was Nixon, he lied about being dead","It was Ronald Reagan, he thought there were communists in the towers","ur mom","The CIA","The Cuban missile crisis","Snoop Dogg did it","It was whitephoenix","The whole blue man group","It was RMS, he came in an airplane's bathroom and his sperms took on a life of their own, escaped the plane to become planes of their own WITHOUT the help of proprietary software OR hardware. GNU planes did 9/11","It was Rolfe and her masculine penis which was wearing a tutu at the time that's why it was confused for a feminine plane"],
             "saturday night and the server's alright":"DON'T REBOOT IT JUST PATCH!",
             "i like fascism":"\x01ACTION high fives %s in the face and then does it a few more times\x01" % TEMPUSR,
@@ -165,7 +165,7 @@ def dothething():
                         "ubuntu":"babby's first distro",
                         "mint":"when it breaks that means you're ready to upgrade",
                         "debian":"Do you smell that? It smells like old, rotting packages...",
-                        "void":"NOBODY EXPECT THE SPANISH XBPSITION",
+                        "void":"NOBODY EXPECTS THE SPANISH XBPSITION",
                         "slackware":"This command is unsupported as I can't find its dependencies anywhere",
                         "netbsd":"medfly pls go",
                         "opensuse":"I'd just  like to interject for a moment. What you're referring to as OpenSUSE, is in fact, Yast/Systemd/OpenSUSE, or as I've recently taken to calling it, Yast plus Systemd plus OpenSUSE. OpenSUSE is not an operating system unto itself but rather another open component of a fully functioning Yast Systemd made useful by the Systemd corelibs, useless features and Yast's bloaty and buggy system components comprising a fully functional OS as defined by Systemd.",
@@ -184,16 +184,16 @@ def dothething():
                         "kde":"Windows Lite™",
                         "gnome":"MacOS Lite™",
                         "pantheon":"Basically a reskin of Gnome 3",
-                        "xfce":["M8 it's as outdated as your grandpa's dick","Great if you like playing with legos I guess...."],
+                        "xfce":"Great if you like playing with legos I guess....",
                         "mate":"NO I WON'T LET GO!!!!!!",
                         "lxde":"I have more ram than I'll ever need PLUS swap but I still want to call this OpenBox setup with a panel my daily DE",
                         "lxqt":"LXDE on a less shitty library",
                         "i3":"Look ma no hands!",
-                        "bspwm":"Oh was that? I was trying to figure out my config files...",
+                        "bspwm":"Oh what was that? I was trying to figure out my config files...",
                         "openbox":">Using a floating window manager outside of a DE",
                         "cde":"The only good DE",
                         "twm":"The only good wm",
-                        "dwm":"as if i3 didn't feel old enough",
+                        "dwm":"Changing the config is a great way to learn C!",
                         "cwm":"Just don't right click",
                         "aqua":"See \".apple\"",
                         "unity":"Turning people away from Linux since 2010!",
@@ -203,7 +203,7 @@ def dothething():
                         "emacs":"The best operating system ever made if it weren't for its lack of a decent text editor",
                         "bsd":"the only good kernel until linux killed it",
                         "linux":"it's absolute garbage, but the best kernel there is.",
-                        "openbsd":"With the same amount of up to date software as it had security breaches!",
+                        "openbsd":"With the same amount of up to date software as it had remote holes!",
                         "freebsd":"Now with a compatibility layer to compete with a 10 year old 32 bit linux kernel!",
                         "windows":"The only good linux distribution",
                         "reactos":"Wine: The OS",
@@ -217,6 +217,7 @@ def dothething():
 
         #commands that wouldn't fit in the dictionary
         gonzo = "Hi, Friend!"
+        weaplus = "weaselbot++"
         wifox = "stop that weaselbot"
         wifox2 = "take a nap weaselbot"
         wifox3 = "i am your master"
@@ -241,7 +242,7 @@ def dothething():
 
         #good old commands
         for command in commands.keys():
-            if cmd.lower() +  command in item.lower():
+            if cmd.lower() + command in item.lower():
                 if isinstance(commands[command],str):
                     s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
                 else:
@@ -253,6 +254,8 @@ def dothething():
         if TEMPUSR == "gonzobot" and gonzo in item:
             sleep(1)
             s.send(str.encode("privmsg " + cchannel + " " + gonzo + "\r\n"))
+        if len(msgpart) == len(weaplus) and weaplus in item.lower():
+            s.send(str.encode("privmsg " + cchannel + " %s++" % TEMPUSR + "\r\n"))
         if ubuu[0] in item.lower() or ubuu[1] in item.lower() or ubuu[2] in item.lower() or ubuu[3] in item.lower():
             sleep(1)
             s.send(str.encode("privmsg " + cchannel + " No, you shouldn't.\r\n"))
@@ -270,9 +273,11 @@ def dothething():
         if TEMPUSR == "Phase" and phase2 in item.lower():
             s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes\x01\r\n"))
             s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
+        if TEMPUSR == "weabot" and "weaselbot: Shutdown Now!" in item:
+            sys.exit()
 
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "**************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
 
 
 weaselbot.connect()
