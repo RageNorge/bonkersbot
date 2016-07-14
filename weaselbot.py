@@ -165,6 +165,7 @@ def dothething():
                         "ubuntu":"babby's first distro",
                         "mint":"when it breaks that means you're ready to upgrade",
                         "debian":"Do you smell that? It smells like old, rotting packages...",
+                        "void":"NOBODY EXPECT THE SPANISH XBPSITION",
                         "slackware":"This command is unsupported as I can't find its dependencies anywhere",
                         "netbsd":"medfly pls go",
                         "opensuse":"I'd just  like to interject for a moment. What you're referring to as OpenSUSE, is in fact, Yast/Systemd/OpenSUSE, or as I've recently taken to calling it, Yast plus Systemd plus OpenSUSE. OpenSUSE is not an operating system unto itself but rather another open component of a fully functioning Yast Systemd made useful by the Systemd corelibs, useless features and Yast's bloaty and buggy system components comprising a fully functional OS as defined by Systemd.",
@@ -183,7 +184,7 @@ def dothething():
                         "kde":"Windows Lite™",
                         "gnome":"MacOS Lite™",
                         "pantheon":"Basically a reskin of Gnome 3",
-                        "xfce":"M8 it's as outdated as your grandpa's dick",
+                        "xfce":["M8 it's as outdated as your grandpa's dick","Great if you like playing with legos I guess...."],
                         "mate":"NO I WON'T LET GO!!!!!!",
                         "lxde":"I have more ram than I'll ever need PLUS swap but I still want to call this OpenBox setup with a panel my daily DE",
                         "lxqt":"LXDE on a less shitty library",
@@ -192,16 +193,22 @@ def dothething():
                         "openbox":">Using a floating window manager outside of a DE",
                         "cde":"The only good DE",
                         "twm":"The only good wm",
-                        "dwm":"like i3 but actually good",
+                        "dwm":"as if i3 didn't feel old enough",
+                        "cwm":"Just don't right click",
                         "aqua":"See \".apple\"",
                         "unity":"Turning people away from Linux since 2010!",
                         "cinnamon":"If Gnome 3 was like gnome fans expected before losing their hard on.",
                         "gnu/hurd":"WE'LL FINISH IT I SWEAR! -RMS, Prime Minister of the world, 2038",
                         "hurd":"WE'LL FINISH IT I SWEAR! -RMS, Prime Minister of the world, 2038",
                         "emacs":"The best operating system ever made if it weren't for its lack of a decent text editor",
+                        "bsd":"the only good kernel until linux killed it",
+                        "linux":"it's absolute garbage, but the best kernel there is.",
+                        "openbsd":"With the same amount of up to date software as it had security breaches!",
+                        "freebsd":"Now with a compatibility layer to compete with a 10 year old 32 bit linux kernel!",
                         "windows":"The only good linux distribution",
                         "reactos":"Wine: The OS",
                         "torvalds":"https://youtu.be/IVpOyKCNZYw?t=1m45s",
+                        "thinkpad":"A big, black hunk of plastic that makes you look like a freak and should be seen as a lethal weapon",
 			"g google":"http://youtu.be/iEwW6D0sht0",
                         "bing bing":"https://www.google.ru/",
                         "ddg duckduckgo":"https://www.duckduckgo.com/ You're Welcome.",
@@ -265,7 +272,7 @@ def dothething():
             s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
 
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "*************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "**************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
 
 
 weaselbot.connect()
