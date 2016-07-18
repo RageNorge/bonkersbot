@@ -277,7 +277,7 @@ def dothething():
             sys.exit()
 
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "*************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
 
 
 weaselbot.connect()
