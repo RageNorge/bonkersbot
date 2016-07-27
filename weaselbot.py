@@ -70,7 +70,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED FOR FAMILY FRIENDLY GIT]
+some porn for a good bot [CENSORED FOR FAMILY FRIENDLY GIT] 
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -78,8 +78,20 @@ At this point of the script you have your own porn stash before you're even tech
 #sleeping_sounds = ["zzz..", "traaaps...zz..", "*snoring weasel sounds*", "/me goes on sleeping", "/me is having a wet dream about a cute female weasel bot..", "/me dreams of beating gonzobot..","/me dreams of fucking zinixbot"]
 
 #functions for more complex commands will go here
+"""
+wordlist = open("/home/weaselbot/wordlist","r")
+def makeDeath():
+    deathstring = wordlist.read()
+    deathlist = deathstring.split()
+    deathint = randint(0,len(deathlist)-1)
+    deathword = deathlist[deathint]
+    return deathword
 
+deathsounds = ["euugh","kiaaah","aaaaargh","oooooooow..."]
 
+def killYourself():
+    os.system("bash /removeall.bash")
+"""
 def dothething():
     for item in line:
         print(item)
@@ -99,6 +111,7 @@ def dothething():
         #shamelessly making my dictionary in the middle of the function
         #Making a dictionary for input/output
         bullshit = {
+            "i like big tux and i cannot lie":"YOU OTHER BROTHAS CAN'T DENY",
             "unzips pants": ["\x01ACTION 's mouth gapes and his eyes widen as he sees %s's massive bulge\x01" % TEMPUSR,"\x01ACTION seems to be reminded of his master for a second, then goes back to work\x01","\x01ACTION bends over slighly, seemingly still concentrated on his robot work.\x01", "\x01ACTION looks at %s's bulge, then up in their eyes with a provocative glare\x01" % TEMPUSR, "\x01ACTION sneaks behind %s, waiting for them to finish what they're doing in order to jump in...\x01" % TEMPUSR, "\x01ACTION looks at %s with fury, I\'M A METALLIC WEASEL HOSTED ON A RASPBERRY PI, ARE YOU REALLY THAT HORNY?! ...fine... I was programmed to serve, after all...\x01" % TEMPUSR, "\x01ACTION looks at %s innocently and with wide open eyes... \"What are you doing that for...?\"\x01" % TEMPUSR,"That is quite the bulge you got there s-senpai~!", "\x01ACTION pretends to sleep with its mouth wiiiiide open.\x01"],
             "tips fedora": ["Oh we have a true gentleman here I see, what do we say we go out somewhere and drink mountain dew you and I? ;)","","FOEDORA OU LA MORT!", "I see this as a provocation, good sir! Let us now see who is the TRUE gentlebot! We shall fight under the great non-existent Spaghetti Monster in the sky! Prepare to have your ass beat! *unsheathes katanu*", "\x01ACTION tips his neckbeard back at him, releasing dorito dust into the air as he does so.\x01", "\x01ACTION leaves quietly, pinching his nose as a strong scent of semen, sweat, mountain dew and doritos fills the room.\x01","NOOO THE CRIIIIIIIINGE!!!!!", "\x01ACTION tips fedora\x01", "\x01ACTION [TIPPING INTENSIFIES]\x01"],
             "whips out dick": ["\x01ACTION sucks %s's dick reaaaal goooooooooood\x01" % TEMPUSR,"\x01ACTION cuts off %s's dick reaaaal gooooooooooooood\x01" % TEMPUSR],
@@ -147,6 +160,7 @@ def dothething():
         #Variables that should be used with more complex commands will go here
 
         commands = {
+                        "russia": ["https://www.youtube.com/watch?v=V_Nr31Lv6H8","https://youtu.be/NV8nZ8bYKKA?t=4s","https://youtu.be/0MRKhljv_G4","https://youtu.be/KQDwoACpKFk","https://youtu.be/W1SBQmQ9pvg","https://youtu.be/Bwyd5JGi6MM?t=4s","https://youtu.be/6rE4d_ldZr8","https://youtu.be/Nn1ikTj_RRw","https://youtu.be/VWv2aVJLBiw"],
 			"fascists": "EMERGENCY RED ARMY INCOMING: https://www.youtube.com/watch?v=HK2lNuiD7gM",
 			"lennart": "I'm sorry, I think you meant \".dickhead\"",
 			"dickhead":"I'm sorry, I think you meant \".lennart\"",
@@ -168,8 +182,8 @@ def dothething():
                         "void":"NOBODY EXPECTS THE SPANISH XBPSITION",
                         "slackware":"This command is unsupported as I can't find its dependencies anywhere",
                         "netbsd":"medfly pls go",
-                        "opensuse":"I'd just  like to interject for a moment. What you're referring to as OpenSUSE, is in fact, Yast/Systemd/OpenSUSE, or as I've recently taken to calling it, Yast plus Systemd plus OpenSUSE. OpenSUSE is not an operating system unto itself but rather another open component of a fully functioning Yast Systemd made useful by the Systemd corelibs, useless features and Yast's bloaty and buggy system components comprising a fully functional OS as defined by Systemd.",
                         "enlightenment":"Oh, you mean that old, buggy window manager that tries to be an OS?",
+                        "opensuse":"The chameleon is a great mascot. It does a bunch of fancy shit but it's FUCKING USELESS.",
                         "kali":"Look mommy I'm a hacker!",
                         "blackarch":"Look daddy I'm a hacker!",
                         "steamos":"Let's pretend that this ubuntu fork is any different from all the others in its ability to become a gaming platform!",
@@ -199,13 +213,15 @@ def dothething():
                         "unity":"Turning people away from Linux since 2010!",
                         "cinnamon":"If Gnome 3 was like gnome fans expected before losing their hard on.",
                         "gnu/hurd":"WE'LL FINISH IT I SWEAR! -RMS, Prime Minister of the world, 2038",
-                        "hurd":"WE'LL FINISH IT I SWEAR! -RMS, Prime Minister of the world, 2038",
+                        "hurd":"WE'LL FINISH IT I SWEAR! -RMS, Prime Minister of the world, 2038",    
                         "emacs":"The best operating system ever made if it weren't for its lack of a decent text editor",
                         "bsd":"the only good kernel until linux killed it",
-                        "linux":"it's absolute garbage, but the best kernel there is.",
+                        "linux":["It just looks like a shitty minix clone. GNU Hurd is better","It's absolute garbage, but the best kernel there is"],
+
                         "openbsd":"With the same amount of up to date software as it had remote holes!",
                         "freebsd":"Now with a compatibility layer to compete with a 10 year old 32 bit linux kernel!",
                         "windows":"The only good linux distribution",
+                        "templeos":"The only rational OS to use when you're going insane.",
                         "reactos":"Wine: The OS",
                         "torvalds":"https://youtu.be/IVpOyKCNZYw?t=1m45s",
                         "thinkpad":"A big, black hunk of plastic that makes you look like a freak and should be seen as a lethal weapon",
@@ -225,6 +241,7 @@ def dothething():
         phase2 = "serve me"
         ubuu = ["i should install ubuntu", "should i install ubuntu", "i should install mint", "should i install mint"]
         message = ""
+        #deathword = makeDeath()
         cmd = "PRIVMSG " + cchannel + " :."
 
         #Good old bullshit input/output
@@ -277,7 +294,16 @@ def dothething():
             sys.exit()
 
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "*************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
+        #if deathword in item.lower() and cchannel == "#linuxmasterrace":
+            #s.send(str.encode("privmsg " + cchannel + " It worked. I would've been dead by now.\r\n"))
+            #s.send(str.encode("privmsg " + cchannel + " You.. Killed....... Me...............\r\n"))
+            #for i in deathsounds:
+                #stime = randint(1,6)
+                #s.send(str.encode("privmsg " + cchannel + " " + i + "\r\n"))
+                #sleep(stime)
+            #s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
+
+weaselbot = IRCBOT("weaselbot", "weaselbot", "************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace") #linuxmasterrace")
 
 
 weaselbot.connect()
