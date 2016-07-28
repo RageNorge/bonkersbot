@@ -70,7 +70,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED FOR FAMILY FRIENDLY GIT] 
+some porn for a good bot [CENSORED] 
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -182,7 +182,7 @@ def dothething():
                         "void":"NOBODY EXPECTS THE SPANISH XBPSITION",
                         "slackware":"This command is unsupported as I can't find its dependencies anywhere",
                         "netbsd":"medfly pls go",
-                        "enlightenment":"Oh, you mean that old, buggy window manager that tries to be an OS?",
+                        "enlightenment":"Oh, you mean that old, buggy window manager that tries to be a DE?",
                         "opensuse":"The chameleon is a great mascot. It does a bunch of fancy shit but it's FUCKING USELESS.",
                         "kali":"Look mommy I'm a hacker!",
                         "blackarch":"Look daddy I'm a hacker!",
