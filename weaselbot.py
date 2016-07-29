@@ -70,7 +70,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED] 
+some porn for a good bot [CENSORED]
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -107,6 +107,13 @@ def dothething():
         except IndexError:
             return 0
 
+        if msgpart[0] == "." and len(msgpart.split()) > 1:
+            multargs = True
+            cmdprt = msgpart.split()[0]
+            argprt = msgpart.split()[1]
+        else:
+            multargs = False
+        #moving on
 
         #shamelessly making my dictionary in the middle of the function
         #Making a dictionary for input/output
@@ -230,6 +237,11 @@ def dothething():
                         "ddg duckduckgo":"https://www.duckduckgo.com/ You're Welcome.",
                         "weaselgit":"https://github.com/pavestnavi/weaselbot",
         }
+        if multargs == True:
+            argcommands = {
+                "test":"\x01ACTION fucks " + argprt + " with his feminine penis\x01",
+                "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01" 
+            }
 
         #commands that wouldn't fit in the dictionary
         gonzo = "Hi, Friend!"
@@ -258,13 +270,22 @@ def dothething():
                     s.send(str.encode(message))
 
         #good old commands
-        for command in commands.keys():
-            if cmd.lower() + command in item.lower():
-                if isinstance(commands[command],str):
-                    s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
-                else:
-                    x = randint(0,len(commands[command]) - 1)
-                    s.send(str.encode("privmsg " + cchannel + " " + commands[command][x] + "\r\n"))
+        if multargs == False:
+            for command in commands.keys():
+                if cmd.lower() + command in item.lower():
+                    if isinstance(commands[command],str):
+                        s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
+                    else:
+                        x = randint(0,len(commands[command]) - 1)
+                        s.send(str.encode("privmsg " + cchannel + " " + commands[command][x] + "\r\n"))
+        else:
+            for command in argcommands.keys():
+                if cmd.lower() + command in item.lower():
+                    if isinstance(argcommands[command],str):
+                        s.send(str.encode("privmsg " + cchannel + " " + argcommands[command] + "\r\n"))
+                    else:
+                        x = randint(0,len(commands[command]) - 1)
+                        s.send(str.encode("privmsg " + cchannel + " " + argcommands[command][x] + "\r\n"))
 
 
         #misc/special snowflakes
@@ -291,7 +312,11 @@ def dothething():
             s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes\x01\r\n"))
             s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
         if TEMPUSR == "weabot" and "weaselbot: Shutdown Now!" in item:
-            sys.exit()
+            s.send(str.encode("PART " + cchannel + "\r\n"))
+            sleep(10)
+            s.send(str.encode("JOIN " + cchannel + "\r\n"))
+            sleep(3)
+            s.send(str.encode("privmsg " + cchannel + " I can't let you do that, Jake...\r\n"))
 
 
         #if deathword in item.lower() and cchannel == "#linuxmasterrace":
@@ -303,7 +328,7 @@ def dothething():
                 #sleep(stime)
             #s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace") #linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "******************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace") #linuxmasterrace")
 
 
 weaselbot.connect()
