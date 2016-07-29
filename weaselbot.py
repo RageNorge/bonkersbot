@@ -70,7 +70,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED] 
+some porn for a good bot [CENSORED]
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -128,7 +128,7 @@ def dothething():
             "i certainly didn't expect the linux inquisition":"NOBODY EXPECTS THE LINUX INQUISITION!",
             "i didnt expect the linux inquisition":"NOBODY EXPECTS THE LINUX INQUISITION!",
             "i didn't expect the spanish inquisition":"NOBODY EXPECTS THE SPANISH INQUISITION!",
-            "i didnt expect the spanish inquisition":"NOBODY EXPECTS THE SPANISH INQUISITION!",
+            " mple']didnt expect the spanish inquisition":"NOBODY EXPECTS THE SPANISH INQUISITION!",
             "i certainly didn't expect the spanish inquisition":"NOBODY EXPECTS THE SPANISH INQUISITION!",
             "weabot's masterpiece":"https://github.com/pavestnavi/hello-world",
             "weaselbot, how do you like cats":"Toasted.",
@@ -240,7 +240,10 @@ def dothething():
         if multargs == True:
             argcommands = {
                 "do":["\x01ACTION fucks " + argprt + " with his feminine penis\x01","\x01ACTION fucks " + argprt + " with her feminine penis\x01"],
-                "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01" 
+                "trump":"\x01ACTION builds a wall between him and " + argprt + " and has them pay for it.",
+                "lennart":"\x01ACTION writes a horrible windows-tier piece of code and shoves it deep deep down " + argprt + "'s throat until it reaches their ass and fucks them with it",
+                "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01",
+                "tease":"\x01ACTION dances and twists around sensually for " + argprt
             }
 
         #commands that wouldn't fit in the dictionary
@@ -328,7 +331,7 @@ def dothething():
                 #sleep(stime)
             #s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace") #linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
 
 
 weaselbot.connect()
