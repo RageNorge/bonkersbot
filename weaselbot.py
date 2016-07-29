@@ -70,7 +70,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED]
+some porn for a good bot [CENSORED] 
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -239,7 +239,7 @@ def dothething():
         }
         if multargs == True:
             argcommands = {
-                "do":"\x01ACTION fucks " + argprt + " with his feminine penis\x01",
+                "do":["\x01ACTION fucks " + argprt + " with his feminine penis\x01","\x01ACTION fucks " + argprt + " with her feminine penis\x01"],
                 "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01" 
             }
 
@@ -284,7 +284,7 @@ def dothething():
                     if isinstance(argcommands[command],str):
                         s.send(str.encode("privmsg " + cchannel + " " + argcommands[command] + "\r\n"))
                     else:
-                        x = randint(0,len(commands[command]) - 1)
+                        x = randint(0,len(argcommands[command]) - 1)
                         s.send(str.encode("privmsg " + cchannel + " " + argcommands[command][x] + "\r\n"))
 
 
