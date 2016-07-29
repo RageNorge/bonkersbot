@@ -239,7 +239,7 @@ def dothething():
         }
         if multargs == True:
             argcommands = {
-                "test":"\x01ACTION fucks " + argprt + " with his feminine penis\x01",
+                "do":"\x01ACTION fucks " + argprt + " with his feminine penis\x01",
                 "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01" 
             }
 
@@ -316,7 +316,7 @@ def dothething():
             sleep(10)
             s.send(str.encode("JOIN " + cchannel + "\r\n"))
             sleep(3)
-            s.send(str.encode("privmsg " + cchannel + " I can't let you do that, Jake...\r\n"))
+            s.send(str.encode("privmsg " + cchannel + " I'm sorry, Dave, I'm afraid I can't do that.\r\n"))
 
 
         #if deathword in item.lower() and cchannel == "#linuxmasterrace":
@@ -328,7 +328,7 @@ def dothething():
                 #sleep(stime)
             #s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "******************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace") #linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace") #linuxmasterrace")
 
 
 weaselbot.connect()
