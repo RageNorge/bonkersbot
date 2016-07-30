@@ -14,9 +14,10 @@ This bot was heavily inspired by zinixbot, thanks to zinn, unixbird and alinea f
 https://git.indohy.us/dubbleohnexus/zinixbot
 """
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s = ssl.wrap_socket(s)
+s = ssl.wrap_socket(s
 line = "placeholder"
 cchannel = ""
+KKK = ["weabot"] #IT'S THE KOOL KID'S KLUB SHUT UP
 
 class IRCBOT(object):
 
@@ -70,7 +71,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED]
+some porn for a good bot http://i.imgur.com/W2hfUBC.jpg
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -315,12 +316,28 @@ def dothething():
         if TEMPUSR == "Phase" and phase2 in item.lower():
             s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes\x01\r\n"))
             s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
-        if TEMPUSR == "weabot" and "weaselbot: Shutdown Now!" in item:
+        if TEMPUSR in KKK and "weaselbot: Shutdown Now!" in item:
             s.send(str.encode("PART " + cchannel + "\r\n"))
             sleep(10)
             s.send(str.encode("JOIN " + cchannel + "\r\n"))
             sleep(3)
             s.send(str.encode("privmsg " + cchannel + " I'm sorry, Dave, I'm afraid I can't do that.\r\n"))
+        if TEMPUSR in KKK and cmd.lower() + "say" in item.lower():
+            saywhat = msgpart.split()[1:]
+            s.send(str.encode("privmsg " + cchannel + " " + ' '.join(saywhat) + "\r\n"))
+        if TEMPUSR in KKK and "weaselbot: Please say in " in item:
+            whatchannel = msgpart.split()[4]
+            saywhat2 = msgpart.split()[5:]
+            s.send(str.encode("privmsg " + whatchannel + " " + ' '.join(saywhat2) + "\r\n"))
+        if TEMPUSR in KKK and cmd + "addKKK" in item:
+            KKKrecruit = msgpart.split()[1]
+            KKK.append(KKKrecruit)
+            s.send(str.encode("privmsg " + cchannel + " Added " + KKKrecruit + " to the Kool Kid's Klub!\r\n"))
+        if TEMPUSR == "weabot" and cmd + "delKKK" in item:
+            KKKdel = msgpart.split()[1]
+            KKK.remove(KKKdel)
+            s.send(str.encode("privmsg " + cchannel + " Removed naughty boy " + KKKdel + " from the Kool Kid's Klub!\r\n"))
+             
 
 
         #if deathword in item.lower() and cchannel == "#linuxmasterrace":
@@ -332,7 +349,7 @@ def dothething():
                 #sleep(stime)
             #s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "1231234", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot")
 
 
 weaselbot.connect()
