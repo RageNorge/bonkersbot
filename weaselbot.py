@@ -71,7 +71,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot http://i.imgur.com/W2hfUBC.jpg
+some porn for a good bot [CENSORED]
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -331,8 +331,11 @@ def dothething():
             s.send(str.encode("privmsg " + whatchannel + " " + ' '.join(saywhat2) + "\r\n"))
         if TEMPUSR in KKK and cmd + "addKKK" in item:
             KKKrecruit = msgpart.split()[1]
-            KKK.append(KKKrecruit)
-            s.send(str.encode("privmsg " + cchannel + " Added " + KKKrecruit + " to the Kool Kid's Klub!\r\n"))
+            if KKKrecruit == "weaselbot":
+                s.send(str.encode("privmsg " + cchannel + " Adding me to the KKK is too dangerous for our Universe.\r\n"
+            else:
+                KKK.append(KKKrecruit)
+                s.send(str.encode("privmsg " + cchannel + " Added " + KKKrecruit + " to the Kool Kid's Klub!\r\n"))
         if TEMPUSR == "weabot" and cmd + "delKKK" in item:
             KKKdel = msgpart.split()[1]
             KKK.remove(KKKdel)
@@ -349,7 +352,7 @@ def dothething():
                 #sleep(stime)
             #s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "1231234", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot")
 
 
 weaselbot.connect()
