@@ -168,6 +168,7 @@ def dothething():
 
         commands = {
                         "russia": ["https://www.youtube.com/watch?v=V_Nr31Lv6H8","https://youtu.be/NV8nZ8bYKKA?t=4s","https://youtu.be/0MRKhljv_G4","https://youtu.be/KQDwoACpKFk","https://youtu.be/W1SBQmQ9pvg","https://youtu.be/Bwyd5JGi6MM?t=4s","https://youtu.be/6rE4d_ldZr8","https://youtu.be/Nn1ikTj_RRw","https://youtu.be/VWv2aVJLBiw"],
+                        "gum":"I'm here to suck dick and chew gum. And I'm all outta dick.",
 			"fascists": "EMERGENCY RED ARMY INCOMING: https://www.youtube.com/watch?v=HK2lNuiD7gM",
 			"lennart": "I'm sorry, I think you meant \".dickhead\"",
 			"dickhead":"I'm sorry, I think you meant \".lennart\"",
@@ -240,10 +241,10 @@ def dothething():
         if multargs == True:
             argcommands = {
                 "do":["\x01ACTION fucks " + argprt + " with his feminine penis\x01","\x01ACTION fucks " + argprt + " with her feminine penis\x01"],
-                "trump":"\x01ACTION builds a wall between him and " + argprt + " and has them pay for it.",
-                "lennart":"\x01ACTION writes a horrible windows-tier piece of code and shoves it deep deep down " + argprt + "'s throat until it reaches their ass and fucks them with it",
+                "trump":"\x01ACTION builds a wall between him and " + argprt + " and has them pay for it.\x01",
+                "lennart":"\x01ACTION writes a horrible windows-tier piece of code and shoves it deep deep down " + argprt + "'s throat until it reaches their ass and fucks them with it\x01",
                 "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01",
-                "tease":"\x01ACTION dances and twists around sensually for " + argprt
+                "tease":"\x01ACTION dances and twists around sensually for " + argprt + "\x01"
             }
 
         #commands that wouldn't fit in the dictionary
@@ -331,7 +332,7 @@ def dothething():
                 #sleep(stime)
             #s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "**************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace")
 
 
 weaselbot.connect()
