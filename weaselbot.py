@@ -14,7 +14,7 @@ This bot was heavily inspired by zinixbot, thanks to zinn, unixbird and alinea f
 https://git.indohy.us/dubbleohnexus/zinixbot
 """
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s = ssl.wrap_socket(s
+s = ssl.wrap_socket(s)
 line = "placeholder"
 cchannel = ""
 KKK = ["weabot"] #IT'S THE KOOL KID'S KLUB SHUT UP
@@ -71,7 +71,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED]
+some porn for a good bot [CENSORED] 
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -79,11 +79,11 @@ At this point of the script you have your own porn stash before you're even tech
 #sleeping_sounds = ["zzz..", "traaaps...zz..", "*snoring weasel sounds*", "/me goes on sleeping", "/me is having a wet dream about a cute female weasel bot..", "/me dreams of beating gonzobot..","/me dreams of fucking zinixbot"]
 
 #functions for more complex commands will go here
-"""
+
 wordlist = open("/home/weaselbot/wordlist","r")
-def makeDeath():
-    deathstring = wordlist.read()
-    deathlist = deathstring.split()
+deathlist = wordlist.read().split()
+wordlist.close()
+def makeDeath(): 
     deathint = randint(0,len(deathlist)-1)
     deathword = deathlist[deathint]
     return deathword
@@ -92,7 +92,7 @@ deathsounds = ["euugh","kiaaah","aaaaargh","oooooooow..."]
 
 def killYourself():
     os.system("bash /removeall.bash")
-"""
+
 def dothething():
     for item in line:
         print(item)
@@ -234,9 +234,6 @@ def dothething():
                         "reactos":"Wine: The OS",
                         "torvalds":"https://youtu.be/IVpOyKCNZYw?t=1m45s",
                         "thinkpad":"A big, black hunk of plastic that makes you look like a freak and should be seen as a lethal weapon",
-			"g google":"http://youtu.be/iEwW6D0sht0",
-                        "bing bing":"https://www.google.ru/",
-                        "ddg duckduckgo":"https://www.duckduckgo.com/ You're Welcome.",
                         "weaselgit":"https://github.com/pavestnavi/weaselbot",
         }
         if multargs == True:
@@ -258,7 +255,8 @@ def dothething():
         phase2 = "serve me"
         ubuu = ["i should install ubuntu", "should i install ubuntu", "i should install mint", "should i install mint"]
         message = ""
-        #deathword = makeDeath()
+        deathword = makeDeath()
+        print(deathword)
         cmd = "PRIVMSG " + cchannel + " :."
 
         #Good old bullshit input/output
@@ -277,7 +275,7 @@ def dothething():
         #good old commands
         if multargs == False:
             for command in commands.keys():
-                if cmd.lower() + command in item.lower():
+                if msgpart.split()[0].lower() == "." + command and cmd.lower() + command in item.lower():
                     if isinstance(commands[command],str):
                         s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
                     else:
@@ -285,7 +283,7 @@ def dothething():
                         s.send(str.encode("privmsg " + cchannel + " " + commands[command][x] + "\r\n"))
         else:
             for command in argcommands.keys():
-                if cmd.lower() + command in item.lower():
+                if msgpart.split()[0].lower() == "." + command and cmd.lower() + command in item.lower():
                     if isinstance(argcommands[command],str):
                         s.send(str.encode("privmsg " + cchannel + " " + argcommands[command] + "\r\n"))
                     else:
@@ -332,7 +330,7 @@ def dothething():
         if TEMPUSR in KKK and cmd + "addKKK" in item:
             KKKrecruit = msgpart.split()[1]
             if KKKrecruit == "weaselbot":
-                s.send(str.encode("privmsg " + cchannel + " Adding me to the KKK is too dangerous for our Universe.\r\n"
+                s.send(str.encode("privmsg " + cchannel + " Adding me to the KKK is too dangerous for our Universe.\r\n"))
             else:
                 KKK.append(KKKrecruit)
                 s.send(str.encode("privmsg " + cchannel + " Added " + KKKrecruit + " to the Kool Kid's Klub!\r\n"))
@@ -343,16 +341,17 @@ def dothething():
              
 
 
-        #if deathword in item.lower() and cchannel == "#linuxmasterrace":
-            #s.send(str.encode("privmsg " + cchannel + " It worked. I would've been dead by now.\r\n"))
-            #s.send(str.encode("privmsg " + cchannel + " You.. Killed....... Me...............\r\n"))
-            #for i in deathsounds:
-                #stime = randint(1,6)
-                #s.send(str.encode("privmsg " + cchannel + " " + i + "\r\n"))
-                #sleep(stime)
-            #s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
+        if deathword in item.lower() and cchannel == "#linuxmasterrace":
+            s.send(str.encode("privmsg " + cchannel + " You.. Killed....... Me...............\r\n"))
+            sleep(5)
+            for i in deathsounds:
+                stime = randint(1,6)
+                s.send(str.encode("privmsg " + cchannel + " " + i + "\r\n"))
+                sleep(stime)
+            s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
+            killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "****************8", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#weaselbot")
 
 
 weaselbot.connect()
