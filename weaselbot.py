@@ -240,7 +240,7 @@ def dothething():
             argcommands = {
                 "do":["\x01ACTION fucks " + argprt + " with his feminine penis\x01","\x01ACTION fucks " + argprt + " with her feminine penis\x01"],
                 "trump":"\x01ACTION builds a wall between him and " + argprt + " and has them pay for it.\x01",
-                "lennart":"\x01ACTION writes a horrible windows-tier piece of code and shoves it deep deep down " + argprt + "'s throat until it reaches their ass and fucks them with it\x01",
+                "lennart":"\x01ACTION writes a horrible windows-grade piece of code and shoves it deep deep down " + argprt + "'s throat until it reaches their ass and fucks them with it\x01",
                 "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01",
                 "tease":"\x01ACTION dances and twists around sensually for " + argprt + "\x01"
             }
@@ -351,14 +351,14 @@ def dothething():
             s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
             killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "****************8", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#weaselbot")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "**************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #nofear #weaselbot #android")
 
 
 weaselbot.connect()
 times = 0
 while times != 5:
 	sleep(3)
-	line = s.recv(2048).decode("utf-8")
+	line = s.recv(2048).decode("utf-8","replace")
 	line = line.rstrip()
 	line = line.split("\n")
 	weaselbot.pong()
@@ -374,7 +374,7 @@ while 1:
     weaselbot.pong()
     weaselbot.identify()
     weaselbot.join_channels()
-    line = s.recv(2048).decode("utf-8")
+    line = s.recv(2048).decode("utf-8","replace")
     line = line.rstrip()
     line = line.split("\n")
     dothething()
