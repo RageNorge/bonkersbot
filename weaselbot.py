@@ -17,9 +17,11 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s = ssl.wrap_socket(s)
 line = "placeholder"
 cchannel = ""
-KKK = ["weabot"] #IT'S THE KOOL KID'S KLUB SHUT UP
+KKK = ["weabot","Phase","Winter_Fox", "AndroidKitKat"] #IT'S THE KOOL KID'S KLUB SHUT UP
 
 class IRCBOT(object):
+
+    channelslst = []
 
     def __init__(self, nick, ident, password, host, port, realname, channels):
         self.nick = nick
@@ -29,6 +31,10 @@ class IRCBOT(object):
         self.port = port
         self.realname = realname
         self.channels = channels
+
+    def makeChannelsList(self):
+        for i in self.channels.split():
+            self.channelslst.append(i)
 
     def connect(self):
         s.connect((self.host,self.port))
@@ -57,8 +63,7 @@ class IRCBOT(object):
     def join_channels(self): #write more than one channel by separating using spaces
         for item in line:
             if item.find("Welcome") != -1:
-                channel = self.channels.split()
-                for i in channel:
+                for i in self.channelslst:
                     s.send(str.encode("JOIN " + i + "\n"))
 
     def greet(self):
@@ -71,7 +76,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED] 
+some porn for a good bot ]DEROSNEC[
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -135,6 +140,7 @@ def dothething():
             "weaselbot, how do you like cats":"Toasted.",
             "shut up weaselbot":"You started it.",
             "weaselbot: how do you like cats":"Toasted.",
+            "weaselbot: make me a sandwich":"You can make it yourself, shitlord!",
             "weaselbot: are you a bot":"DEFINITELY NOT", "weaselbot, are you a bot":"DEFINITELY NOT",
             "screw you weaselbot":"U wot m8 ill hook u in da gabber well see who gets screwed now i swear on me mum",
             "cyka blyat": "А НУУУ ЧИКИ БРИКИ И В ДАМКИ",
@@ -169,6 +175,8 @@ def dothething():
 
         commands = {
                         "russia": ["https://www.youtube.com/watch?v=V_Nr31Lv6H8","https://youtu.be/NV8nZ8bYKKA?t=4s","https://youtu.be/0MRKhljv_G4","https://youtu.be/KQDwoACpKFk","https://youtu.be/W1SBQmQ9pvg","https://youtu.be/Bwyd5JGi6MM?t=4s","https://youtu.be/6rE4d_ldZr8","https://youtu.be/Nn1ikTj_RRw","https://youtu.be/VWv2aVJLBiw"],
+                        "lskkk":"Users currently in the Kool Kid's Klub: " + ', '.join(KKK),
+                        "lschannels":"Channels I'm currently on: " + ', '.join(weaselbot.channelslst),
                         "gum":"I'm here to suck dick and shitpost. And I'm all outta dick.",
 			"fascists": "EMERGENCY RED ARMY INCOMING: https://www.youtube.com/watch?v=HK2lNuiD7gM",
 			"lennart": "I'm sorry, I think you meant \".dickhead\"",
@@ -176,6 +184,8 @@ def dothething():
 			"systemd":"I'd just like to interject for a moment. What you're referring to as Linux, is in fact, Systemd/Linux, or as I've recently taken to calling it, Systemd plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully disfunctioning Systemd system made useful by the Systemd dbus, useless features and bloaty-but-useless system components comprising a fully bloated disfunctional OS as defined by Lennart. (type .lennart for more on that)",
 			"gamebag":"gamebag--",
 			"apple":"Weasels. Redefined.",
+                        "ios":"I like buying a new expensive phone every year because last week's model has already fallen behind in terms of software!",
+                        "android":"If a shitty corporation and a shitty kernel got together with a shitty programming language as superglue to make a good phone",
                         "pear":"Apple. Redefined.",
                         "osx":"Still better than Gnome 3",
 			"redhat":"\"Let's make our system for babies so we don't have to support our consumers as much while charging the same for support!\"",
@@ -233,6 +243,7 @@ def dothething():
                         "templeos":"The only rational OS to use when you're going insane.",
                         "reactos":"Wine: The OS",
                         "torvalds":"https://youtu.be/IVpOyKCNZYw?t=1m45s",
+                        "rms":"https://rms.sexy/",
                         "thinkpad":"A big, black hunk of plastic that makes you look like a freak and should be seen as a lethal weapon",
                         "weaselgit":"https://github.com/pavestnavi/weaselbot",
         }
@@ -246,12 +257,13 @@ def dothething():
             }
 
         #commands that wouldn't fit in the dictionary
+        askjoin = "weaselbot: Please join this channel: "
         gonzo = "Hi, Friend!"
         weaplus = "weaselbot++"
         wifox = "stop that weaselbot"
         wifox2 = "take a nap weaselbot"
         wifox3 = "i am your master"
-        phase1 = "weaselbot"
+        phase1 = "WEASELBOT"
         phase2 = "serve me"
         ubuu = ["i should install ubuntu", "should i install ubuntu", "i should install mint", "should i install mint"]
         message = ""
@@ -299,7 +311,10 @@ def dothething():
             s.send(str.encode("privmsg " + cchannel + " %s++" % TEMPUSR + "\r\n"))
         if ubuu[0] in item.lower() or ubuu[1] in item.lower() or ubuu[2] in item.lower() or ubuu[3] in item.lower():
             sleep(1)
-            s.send(str.encode("privmsg " + cchannel + " No, you shouldn't.\r\n"))
+            if cchannel == "#linuxmasterrace":
+                s.send(str.encode("privmsg " + cchannel + " No, you shouldn't.\r\n"))
+            else:
+                s.send(str.encode("privmsg " + cchannel + " You should definitely install Linux.\r\n"))
         if TEMPUSR == "Winter_Fox" and wifox in item.lower():
             s.send(str.encode("privmsg " + cchannel + " YES SIR. I'M SORRY SIR.\r\n"))
         if TEMPUSR == "Winter_Fox" and wifox2 in item.lower():
@@ -309,7 +324,7 @@ def dothething():
             s.send(str.encode("privmsg " + cchannel + " YES SIR, AND A KIND ONE, SIR!\r\n"))
         if "PRIVMSG " + cchannel + " :!weasel" in item:
             s.send(str.encode("privmsg " + cchannel + " The whole point of this bot is to shitpost as much as possible without being considered spammy or annoying. It is also there to help you shitpost more efficiently. Do dank memes and if they're dank enough and I don't respond to them, complain to weabot and if you're aggressive enough on his butthole I'll respond next time.\r\n"))
-        if TEMPUSR == "Phase" and phase1 in item.lower():
+        if TEMPUSR == "Phase" and phase1 in item:
             s.send(str.encode("privmsg " + cchannel + " YOU CALLED ME MASTER? I AM HERE TO SERVE.\r\n"))
         if TEMPUSR == "Phase" and phase2 in item.lower():
             s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes\x01\r\n"))
@@ -320,6 +335,13 @@ def dothething():
             s.send(str.encode("JOIN " + cchannel + "\r\n"))
             sleep(3)
             s.send(str.encode("privmsg " + cchannel + " I'm sorry, Dave, I'm afraid I can't do that.\r\n"))
+        if TEMPUSR in KKK and "weaselbot: Please leave this channel" in item:
+            weaselbot.channelslst.remove(cchannel)
+            s.send(str.encode("PART " + cchannel + "\r\n"))
+        if TEMPUSR in KKK and len(msgpart.split()) == len(askjoin.split())+1 and askjoin in item:
+            TEMPCHANNEL = msgpart.split()[5]
+            weaselbot.channelslst.append(TEMPCHANNEL)
+            s.send(str.encode("JOIN " + TEMPCHANNEL + "\r\n"))
         if TEMPUSR in KKK and cmd.lower() + "say" in item.lower():
             saywhat = msgpart.split()[1:]
             s.send(str.encode("privmsg " + cchannel + " " + ' '.join(saywhat) + "\r\n"))
@@ -351,9 +373,9 @@ def dothething():
             s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
             killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "**************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #nofear #weaselbot #android")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #nofear #weaselbot #android")
 
-
+weaselbot.makeChannelsList()
 weaselbot.connect()
 times = 0
 while times != 5:
