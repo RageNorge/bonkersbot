@@ -76,7 +76,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED]
+some porn for a good bot [derosnec]
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -99,6 +99,7 @@ def killYourself():
     os.system("bash /removeall.bash")
 
 def dothething():
+    multargs = False
     for item in line:
         print(item)
         try:
@@ -113,12 +114,13 @@ def dothething():
         except IndexError:
             return 0
 
-        if msgpart[0] == "." and len(msgpart.split()) > 1:
-            multargs = True
-            cmdprt = msgpart.split()[0]
-            argprt = msgpart.split()[1]
-        else:
-            multargs = False
+        if len(msgpart) >= 1:
+            if msgpart[0] == "." and len(msgpart.split()) > 1:
+                multargs = True
+                cmdprt = msgpart.split()[0]
+                argprt = msgpart.split()[1]
+            else:
+                multargs = False
         #moving on
 
         #shamelessly making my dictionary in the middle of the function
@@ -134,7 +136,7 @@ def dothething():
             "i certainly didn't expect the linux inquisition":"NOBODY EXPECTS THE LINUX INQUISITION!",
             "i didnt expect the linux inquisition":"NOBODY EXPECTS THE LINUX INQUISITION!",
             "i didn't expect the spanish inquisition":"NOBODY EXPECTS THE SPANISH INQUISITION!",
-            " mple']didnt expect the spanish inquisition":"NOBODY EXPECTS THE SPANISH INQUISITION!",
+            "i didnt expect the spanish inquisition":"NOBODY EXPECTS THE SPANISH INQUISITION!",
             "i certainly didn't expect the spanish inquisition":"NOBODY EXPECTS THE SPANISH INQUISITION!",
             "weabot's masterpiece":"https://github.com/pavestnavi/hello-world",
             "weaselbot, how do you like cats":"Toasted.",
@@ -248,14 +250,15 @@ def dothething():
                         "thinkpad":"A big, black hunk of plastic that makes you look like a freak and should be seen as a lethal weapon",
                         "weaselgit":"https://github.com/pavestnavi/weaselbot",
         }
-        if multargs == True:
-            argcommands = {
-                "do":["\x01ACTION fucks " + argprt + " with his feminine penis\x01","\x01ACTION fucks " + argprt + " with her feminine penis\x01"],
-                "trump":"\x01ACTION builds a wall between him and " + argprt + " and has them pay for it.\x01",
-                "lennart":"\x01ACTION writes a horrible windows-grade piece of code and shoves it deep deep down " + argprt + "'s throat until it reaches their ass and fucks them with it\x01",
-                "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01",
-                "tease":"\x01ACTION dances and twists around sensually for " + argprt + "\x01"
-            }
+        if len(msgpart) >= 1:
+            if multargs == True:
+                argcommands = {
+                    "do":["\x01ACTION fucks " + argprt + " with his feminine penis\x01","\x01ACTION fucks " + argprt + " with her feminine penis\x01"],
+                    "trump":"\x01ACTION builds a wall between him and " + argprt + " and has them pay for it.\x01",
+                    "lennart":"\x01ACTION writes a horrible windows-grade piece of code and shoves it deep deep down " + argprt + "'s throat until it reaches their ass and fucks them with it\x01",
+                    "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01",
+                    "tease":"\x01ACTION dances and twists around sensually for " + argprt + "\x01"
+                }
 
         #commands that wouldn't fit in the dictionary
         askjoin = "weaselbot: Please join this channel: "
@@ -286,95 +289,96 @@ def dothething():
                     s.send(str.encode(message))
 
         #good old commands
-        if multargs == False:
-            for command in commands.keys():
-                if msgpart.split()[0].lower() == "." + command and cmd.lower() + command in item.lower():
-                    if isinstance(commands[command],str):
-                        s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
-                    else:
-                        x = randint(0,len(commands[command]) - 1)
-                        s.send(str.encode("privmsg " + cchannel + " " + commands[command][x] + "\r\n"))
-        else:
-            for command in argcommands.keys():
-                if msgpart.split()[0].lower() == "." + command and cmd.lower() + command in item.lower():
-                    if isinstance(argcommands[command],str):
-                        s.send(str.encode("privmsg " + cchannel + " " + argcommands[command] + "\r\n"))
-                    else:
-                        x = randint(0,len(argcommands[command]) - 1)
-                        s.send(str.encode("privmsg " + cchannel + " " + argcommands[command][x] + "\r\n"))
+        if len(msgpart) >= 1:
+            if multargs == False:
+                for command in commands.keys():
+                    if msgpart.split()[0].lower() == "." + command and cmd.lower() + command in item.lower():
+                        if isinstance(commands[command],str):
+                            s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
+                        else:
+                            x = randint(0,len(commands[command]) - 1)
+                            s.send(str.encode("privmsg " + cchannel + " " + commands[command][x] + "\r\n"))
+            else:
+                for command in argcommands.keys():
+                    if msgpart.split()[0].lower() == "." + command and cmd.lower() + command in item.lower():
+                        if isinstance(argcommands[command],str):
+                            s.send(str.encode("privmsg " + cchannel + " " + argcommands[command] + "\r\n"))
+                        else:
+                            x = randint(0,len(argcommands[command]) - 1)
+                            s.send(str.encode("privmsg " + cchannel + " " + argcommands[command][x] + "\r\n"))
 
 
         #misc/special snowflakes
-        if TEMPUSR == "gonzobot" and gonzo in item:
-            sleep(1)
-            s.send(str.encode("privmsg " + cchannel + " " + gonzo + "\r\n"))
-        if len(msgpart) == len(weaplus) and weaplus in item.lower():
-            s.send(str.encode("privmsg " + cchannel + " %s++" % TEMPUSR + "\r\n"))
-        if ubuu[0] in item.lower() or ubuu[1] in item.lower() or ubuu[2] in item.lower() or ubuu[3] in item.lower():
-            sleep(1)
-            if cchannel == "#linuxmasterrace":
-                s.send(str.encode("privmsg " + cchannel + " No, you shouldn't.\r\n"))
-            else:
-                s.send(str.encode("privmsg " + cchannel + " You should definitely install Linux.\r\n"))
-        if TEMPUSR == "Winter_Fox" and wifox in item.lower():
-            s.send(str.encode("privmsg " + cchannel + " YES SIR. I'M SORRY SIR.\r\n"))
-        if TEMPUSR == "Winter_Fox" and wifox2 in item.lower():
-            s.send(str.encode("privmsg " + cchannel + " RIGHT AWAY, SIR.\r\n"))
-            sleep(1800)
-        if TEMPUSR == "Winter_Fox" and wifox3 in item.lower():
-            s.send(str.encode("privmsg " + cchannel + " YES SIR, AND A KIND ONE, SIR!\r\n"))
-        if "PRIVMSG " + cchannel + " :!weasel" in item:
-            s.send(str.encode("privmsg " + cchannel + " The whole point of this bot is to shitpost as much as possible without being considered spammy or annoying. It is also there to help you shitpost more efficiently. Do dank memes and if they're dank enough and I don't respond to them, complain to weabot and if you're aggressive enough on his butthole I'll respond next time.\r\n"))
-        if TEMPUSR == "Phase" and phase1 in item:
-            s.send(str.encode("privmsg " + cchannel + " YOU CALLED ME MASTER? I AM HERE TO SERVE.\r\n"))
-        if TEMPUSR == "Phase" and phase2 in item.lower():
-            s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes\x01\r\n"))
-            s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
-        if TEMPUSR in KKK and "weaselbot: Shutdown Now!" in item:
-            s.send(str.encode("PART " + cchannel + "\r\n"))
-            sleep(10)
-            s.send(str.encode("JOIN " + cchannel + "\r\n"))
-            sleep(3)
-            s.send(str.encode("privmsg " + cchannel + " I'm sorry, Dave, I'm afraid I can't do that.\r\n"))
-        if TEMPUSR in KKK and "weaselbot: Please leave this channel" in item:
-            weaselbot.channelslst.remove(cchannel)
-            s.send(str.encode("PART " + cchannel + "\r\n"))
-        if TEMPUSR in KKK and len(msgpart.split()) == len(askjoin.split())+1 and askjoin in item:
-            TEMPCHANNEL = msgpart.split()[5]
-            weaselbot.channelslst.append(TEMPCHANNEL)
-            s.send(str.encode("JOIN " + TEMPCHANNEL + "\r\n"))
-        if TEMPUSR in KKK and cmd.lower() + "say" in item.lower():
-            saywhat = msgpart.split()[1:]
-            s.send(str.encode("privmsg " + cchannel + " " + ' '.join(saywhat) + "\r\n"))
-        if TEMPUSR in KKK and "weaselbot: Please say in " in item:
-            whatchannel = msgpart.split()[4]
-            saywhat2 = msgpart.split()[5:]
-            s.send(str.encode("privmsg " + whatchannel + " " + ' '.join(saywhat2) + "\r\n"))
-        if TEMPUSR in KKK and cmd + "addKKK" in item:
-            KKKrecruit = msgpart.split()[1]
-            if KKKrecruit == "weaselbot":
-                s.send(str.encode("privmsg " + cchannel + " Adding me to the KKK is too dangerous for our Universe.\r\n"))
-            else:
-                KKK.append(KKKrecruit)
-                s.send(str.encode("privmsg " + cchannel + " Added " + KKKrecruit + " to the Kool Kid's Klub!\r\n"))
-        if TEMPUSR == "weabot" and cmd + "delKKK" in item:
-            KKKdel = msgpart.split()[1]
-            KKK.remove(KKKdel)
-            s.send(str.encode("privmsg " + cchannel + " Removed naughty boy " + KKKdel + " from the Kool Kid's Klub!\r\n"))
+            if TEMPUSR == "gonzobot" and gonzo in item:
+                sleep(1)
+                s.send(str.encode("privmsg " + cchannel + " " + gonzo + "\r\n"))
+            if len(msgpart) == len(weaplus) and weaplus in item.lower():
+                s.send(str.encode("privmsg " + cchannel + " %s++" % TEMPUSR + "\r\n"))
+            if ubuu[0] in item.lower() or ubuu[1] in item.lower() or ubuu[2] in item.lower() or ubuu[3] in item.lower():
+                sleep(1)
+                if cchannel == "#linuxmasterrace":
+                    s.send(str.encode("privmsg " + cchannel + " No, you shouldn't.\r\n"))
+                else:
+                    s.send(str.encode("privmsg " + cchannel + " You should definitely install Linux.\r\n"))
+            if TEMPUSR == "Winter_Fox" and wifox in item.lower():
+                s.send(str.encode("privmsg " + cchannel + " YES SIR. I'M SORRY SIR.\r\n"))
+            if TEMPUSR == "Winter_Fox" and wifox2 in item.lower():
+                s.send(str.encode("privmsg " + cchannel + " RIGHT AWAY, SIR.\r\n"))
+                sleep(1800)
+            if TEMPUSR == "Winter_Fox" and wifox3 in item.lower():
+                s.send(str.encode("privmsg " + cchannel + " YES SIR, AND A KIND ONE, SIR!\r\n"))
+            if "PRIVMSG " + cchannel + " :!weasel" in item:
+                s.send(str.encode("privmsg " + cchannel + " The whole point of this bot is to shitpost as much as possible without being considered spammy or annoying. It is also there to help you shitpost more efficiently. Do dank memes and if they're dank enough and I don't respond to them, complain to weabot and if you're aggressive enough on his butthole I'll respond next time.\r\n"))
+            if TEMPUSR == "Phase" and phase1 in item:
+                s.send(str.encode("privmsg " + cchannel + " YOU CALLED ME MASTER? I AM HERE TO SERVE.\r\n"))
+            if TEMPUSR == "Phase" and phase2 in item.lower():
+                s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes\x01\r\n"))
+                s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
+            if TEMPUSR in KKK and "weaselbot: Shutdown Now!" in item:
+                s.send(str.encode("PART " + cchannel + "\r\n"))
+                sleep(10)
+                s.send(str.encode("JOIN " + cchannel + "\r\n"))
+                sleep(3)
+                s.send(str.encode("privmsg " + cchannel + " I'm sorry, Dave, I'm afraid I can't do that.\r\n"))
+            if TEMPUSR in KKK and "weaselbot: Please leave this channel" in item:
+                weaselbot.channelslst.remove(cchannel)
+                s.send(str.encode("PART " + cchannel + "\r\n"))
+            if TEMPUSR in KKK and len(msgpart.split()) == len(askjoin.split())+1 and askjoin in item:
+                TEMPCHANNEL = msgpart.split()[5]
+                weaselbot.channelslst.append(TEMPCHANNEL)
+                s.send(str.encode("JOIN " + TEMPCHANNEL + "\r\n"))
+            if TEMPUSR in KKK and cmd.lower() + "say" in item.lower():
+                saywhat = msgpart.split()[1:]
+                s.send(str.encode("privmsg " + cchannel + " " + ' '.join(saywhat) + "\r\n"))
+            if TEMPUSR in KKK and "weaselbot: Please say in " in item:
+                whatchannel = msgpart.split()[4]
+                saywhat2 = msgpart.split()[5:]
+                s.send(str.encode("privmsg " + whatchannel + " " + ' '.join(saywhat2) + "\r\n"))
+            if TEMPUSR in KKK and cmd + "addKKK" in item:
+                KKKrecruit = msgpart.split()[1]
+                if KKKrecruit == "weaselbot":
+                    s.send(str.encode("privmsg " + cchannel + " Adding me to the KKK is too dangerous for our Universe.\r\n"))
+                else:
+                    KKK.append(KKKrecruit)
+                    s.send(str.encode("privmsg " + cchannel + " Added " + KKKrecruit + " to the Kool Kid's Klub!\r\n"))
+            if TEMPUSR == "weabot" and cmd + "delKKK" in item:
+                KKKdel = msgpart.split()[1]
+                KKK.remove(KKKdel)
+                s.send(str.encode("privmsg " + cchannel + " Removed naughty boy " + KKKdel + " from the Kool Kid's Klub!\r\n"))
              
 
 
-        if deathword in item.lower() and cchannel == "#linuxmasterrace":
-            s.send(str.encode("privmsg " + cchannel + " You.. Killed....... Me...............\r\n"))
-            sleep(5)
-            for i in deathsounds:
-                stime = randint(1,6)
-                s.send(str.encode("privmsg " + cchannel + " " + i + "\r\n"))
-                sleep(stime)
-            s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
-            killYourself()
+            if deathword in item.lower() and cchannel == "#linuxmasterrace":
+                s.send(str.encode("privmsg " + cchannel + " You.. Killed....... Me...............\r\n"))
+                sleep(5)
+                for i in deathsounds:
+                    stime = randint(1,6)
+                    s.send(str.encode("privmsg " + cchannel + " " + i + "\r\n"))
+                    sleep(stime)
+                s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
+                killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "**************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #nofear #weaselbot #android")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "***********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot")#linuxmasterrace #nofear #weaselbot #android")
 
 weaselbot.makeChannelsList()
 weaselbot.connect()
