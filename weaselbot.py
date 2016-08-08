@@ -17,7 +17,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s = ssl.wrap_socket(s)
 line = "placeholder"
 cchannel = ""
-KKK = ["weabot","Phase","Winter_Fox", "AndroidKitKat"] #IT'S THE KOOL KID'S KLUB SHUT UP
+KKK = ["weabot","Phase","Winter_Fox", "AndroidKitKat", "fear"] #IT'S THE KOOL KID'S KLUB SHUT UP
 
 class IRCBOT(object):
 
@@ -76,7 +76,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [derosnec]
+some porn for a good bot http://i.imgur.com/W2hfUBC.jpg
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -177,7 +177,7 @@ def dothething():
 
         commands = {
                         "russia": ["https://www.youtube.com/watch?v=V_Nr31Lv6H8","https://youtu.be/NV8nZ8bYKKA?t=4s","https://youtu.be/0MRKhljv_G4","https://youtu.be/KQDwoACpKFk","https://youtu.be/W1SBQmQ9pvg","https://youtu.be/Bwyd5JGi6MM?t=4s","https://youtu.be/6rE4d_ldZr8","https://youtu.be/Nn1ikTj_RRw","https://youtu.be/VWv2aVJLBiw"],
-                        "tfw":["\x033>tfw no gf\x03","\x033>tfw no bf\x03","\x033>tfw no qt 3.14 korean gf\x03","\x033>tfw no bearmode boyfriend (no homo)\x03","\x033>tfw what's bad for the people is good for the economy\x03","\x033>tfw what's bad for my feelings is good for her\x03","\x033>tfw everyone's enjoying their lives and travelling and I'm here shitposting on a linux irc channel\x03","\x033>tfw no qt trap gf\x03","\x033>tfw youy'll never bang a ladyboy\x03","\x033>tfw the revolution will never come\x03","\x033>tfw when you die the universe will live on forever and forget about you in at most 50 years\x03","\x033>tfw RMS will die in your lifetime\x03","\x033>tfw when Linus dies Linux will turn into a dirty corporation only interested in profit like every other tech company\x03"],
+                        "tfw":["\x033>tfw no gf\x03","\x033>tfw no bf\x03","\x033>tfw no qt 3.14 korean gf\x03","\x033>tfw no bearmode boyfriend (no homo)\x03","\x033>tfw what's bad for the people is good for the economy\x03","\x033>tfw what's bad for my feelings is good for her\x03","\x033>tfw everyone's enjoying their lives and travelling and I'm here shitposting on a linux irc channel\x03","\x033>tfw no qt trap gf\x03","\x033>tfw you'll never bang a ladyboy\x03","\x033>tfw the revolution will never come\x03","\x033>tfw when you die the universe will live on forever and forget about you in at most 50 years\x03","\x033>tfw RMS will die in your lifetime\x03","\x033>tfw when Linus dies Linux will turn into a dirty corporation only interested in profit like every other tech company\x03","\"We were so poor that we thought new clothes meant someone had died\""],
                         "lskkk":"Users currently in the Kool Kid's Klub: " + ', '.join(KKK),
                         "lschannels":"Channels I'm currently on: " + ', '.join(weaselbot.channelslst),
                         "gum":"I'm here to suck dick and shitpost. And I'm all outta dick.",
@@ -378,7 +378,7 @@ def dothething():
                 s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
                 killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "***********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot")#linuxmasterrace #nofear #weaselbot #android")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "1231234", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot")#linuxmasterrace #nofear #weaselbot #android")
 
 weaselbot.makeChannelsList()
 weaselbot.connect()
