@@ -378,7 +378,7 @@ def dothething():
                 s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
                 killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "1231234", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot")#linuxmasterrace #nofear #weaselbot #android")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "1231234", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot #android #nofear")#linuxmasterrace #nofear #weaselbot #android")
 
 weaselbot.makeChannelsList()
 weaselbot.connect()
