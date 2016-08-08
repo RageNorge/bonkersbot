@@ -76,7 +76,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot http://i.imgur.com/W2hfUBC.jpg
+some porn for a good bot [CENSORED]
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -378,7 +378,7 @@ def dothething():
                 s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
                 killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "1231234", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot #android #nofear")#linuxmasterrace #nofear #weaselbot #android")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "******************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot #android #nofear")#linuxmasterrace #nofear #weaselbot #android")
 
 weaselbot.makeChannelsList()
 weaselbot.connect()
