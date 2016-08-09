@@ -98,6 +98,9 @@ deathsounds = ["euugh","kiaaah","aaaaargh","oooooooow..."]
 def killYourself():
     os.system("bash /removeall.bash")
 
+def sendMessage(chan,msg):
+    s.send(str.encode("privmsg " + chan + ' ' + msg + "\r\n"))
+
 def dothething():
     multargs = False
     for item in line:
@@ -177,7 +180,9 @@ def dothething():
 
         commands = {
                         "russia": ["https://www.youtube.com/watch?v=V_Nr31Lv6H8","https://youtu.be/NV8nZ8bYKKA?t=4s","https://youtu.be/0MRKhljv_G4","https://youtu.be/KQDwoACpKFk","https://youtu.be/W1SBQmQ9pvg","https://youtu.be/Bwyd5JGi6MM?t=4s","https://youtu.be/6rE4d_ldZr8","https://youtu.be/Nn1ikTj_RRw","https://youtu.be/VWv2aVJLBiw"],
-                        "tfw":["\x033>tfw no gf\x03","\x033>tfw no bf\x03","\x033>tfw no qt 3.14 korean gf\x03","\x033>tfw no bearmode boyfriend (no homo)\x03","\x033>tfw what's bad for the people is good for the economy\x03","\x033>tfw what's bad for my feelings is good for her\x03","\x033>tfw everyone's enjoying their lives and travelling and I'm here shitposting on a linux irc channel\x03","\x033>tfw no qt trap gf\x03","\x033>tfw you'll never bang a ladyboy\x03","\x033>tfw the revolution will never come\x03","\x033>tfw when you die the universe will live on forever and forget about you in at most 50 years\x03","\x033>tfw RMS will die in your lifetime\x03","\x033>tfw when Linus dies Linux will turn into a dirty corporation only interested in profit like every other tech company\x03","\"We were so poor that we thought new clothes meant someone had died\""],
+                        "tfw":["\x033>tfw no gf\x03","\x033>tfw no bf\x03","\x033>tfw no qt 3.14 korean gf\x03","\x033>tfw no bearmode boyfriend (no homo)\x03","\x033>tfw what's bad for the people is good for the economy\x03","\x033>tfw everyone's enjoying their lives and travelling and I'm here shitposting on a linux irc channel\x03","\x033>tfw no qt trap gf\x03","\x033>tfw you'll never bang a ladyboy\x03","\x033>tfw the revolution will never come\x03","\x033>tfw when you die the universe will live on forever and forget about you in at most 50 years\x03","\x033>tfw RMS will die in your lifetime\x03","\x033>tfw when Linus dies Linux will turn into a dirty corporation only interested in profit like every other tech company\x03","\"We were so poor that we thought new clothes meant someone had died\""],
+                        "capitalism":["https://youtu.be/Ixo0gtLIuLk","https://youtu.be/jETJt_zbnKk","https://youtu.be/u6XAPnuFjJc","http://i.imgur.com/0BHj31r.jpg","http://i.imgur.com/avGRIsT.jpg","http://i.imgur.com/Ok0JKGb.jpg","http://i.imgur.com/tAKVVZy.jpg","http://i.imgur.com/E3UwFSM.jpg","http://i.imgur.com/a3SXW6r.jpg"],
+                        "jews":"http://i.imgur.com/JqTU0Os.jpg",
                         "lskkk":"Users currently in the Kool Kid's Klub: " + ', '.join(KKK),
                         "lschannels":"Channels I'm currently on: " + ', '.join(weaselbot.channelslst),
                         "gum":"I'm here to suck dick and shitpost. And I'm all outta dick.",
@@ -254,13 +259,14 @@ def dothething():
             if multargs == True:
                 argcommands = {
                     "do":["\x01ACTION fucks " + argprt + " with his feminine penis\x01","\x01ACTION fucks " + argprt + " with her feminine penis\x01"],
-                    "trump":"\x01ACTION builds a wall between him and " + argprt + " and has them pay for it.\x01",
+                    "trump":"\x01ACTION builds a wall between "+ TEMPUSR + " and " + argprt + " and has " + argprt + " pay for it.\x01",
                     "lennart":"\x01ACTION writes a horrible windows-grade piece of code and shoves it deep deep down " + argprt + "'s throat until it reaches their ass and fucks them with it\x01",
                     "gulag":"\x01ACTION throws " + argprt + " in a dark hole in Siberia where he'll mine for the rest of his short, meaningless life for the crime of being anti-revolutionary\x01",
                     "tease":"\x01ACTION dances and twists around sensually for " + argprt + "\x01"
                 }
 
         #commands that wouldn't fit in the dictionary
+        weaseldescript = "The whole point of this bot is to shitpost as much as possible without being considered     spammy or annoying. It is also there to help you shitpost more efficiently. Do dank memes and if they're dank enough and I don't respond to them,     complain to weabot and if you're aggressive enough on his butthole I'll respond next time."
         askjoin = "weaselbot: Please join this channel: "
         gonzo = "Hi, Friend!"
         weaplus = "weaselbot++"
@@ -280,13 +286,11 @@ def dothething():
             if key in item.lower():
                 if isinstance(bullshit[key],str):
                     sleep(1)
-                    message = "privmsg " + cchannel + " " + bullshit[key] + "\r\n"
-                    s.send(str.encode(message))
+                    sendMessage(cchannel,bullshit[key])
                 else:
                     sleep(1)
                     x = randint(0,len(bullshit[key]) - 1)
-                    message = "privmsg " + cchannel + " " + bullshit[key][x] + "\r\n"
-                    s.send(str.encode(message))
+                    sendMessage(cchannel,bullshit[key][x])
 
         #good old commands
         if len(msgpart) >= 1:
@@ -295,51 +299,52 @@ def dothething():
                     if msgpart.split()[0].lower() == "." + command and cmd.lower() + command in item.lower():
                         if isinstance(commands[command],str):
                             s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
+                            sendMessage(cchannel,commands[command])
                         else:
                             x = randint(0,len(commands[command]) - 1)
-                            s.send(str.encode("privmsg " + cchannel + " " + commands[command][x] + "\r\n"))
+                            sendMessage(cchannel,commands[command][x])
             else:
                 for command in argcommands.keys():
                     if msgpart.split()[0].lower() == "." + command and cmd.lower() + command in item.lower():
                         if isinstance(argcommands[command],str):
-                            s.send(str.encode("privmsg " + cchannel + " " + argcommands[command] + "\r\n"))
+                            sendMessage(cchannel,argcommands[command])
                         else:
                             x = randint(0,len(argcommands[command]) - 1)
-                            s.send(str.encode("privmsg " + cchannel + " " + argcommands[command][x] + "\r\n"))
+                            sendMessage(cchannel,argcommands[command][x])
 
 
         #misc/special snowflakes
             if TEMPUSR == "gonzobot" and gonzo in item:
                 sleep(1)
-                s.send(str.encode("privmsg " + cchannel + " " + gonzo + "\r\n"))
+                sendMessage(cchannel,gonzo)
             if len(msgpart) == len(weaplus) and weaplus in item.lower():
-                s.send(str.encode("privmsg " + cchannel + " %s++" % TEMPUSR + "\r\n"))
+                sendMessage(cchannel,"%s++" % TEMPUSR)
             if ubuu[0] in item.lower() or ubuu[1] in item.lower() or ubuu[2] in item.lower() or ubuu[3] in item.lower():
                 sleep(1)
                 if cchannel == "#linuxmasterrace":
-                    s.send(str.encode("privmsg " + cchannel + " No, you shouldn't.\r\n"))
+                    sendMessage(cchannel,"No, you shouldn't.")
                 else:
-                    s.send(str.encode("privmsg " + cchannel + " You should definitely install Linux.\r\n"))
+                    sendMessage(cchannel,"You should definitely install Linux.")
             if TEMPUSR == "Winter_Fox" and wifox in item.lower():
-                s.send(str.encode("privmsg " + cchannel + " YES SIR. I'M SORRY SIR.\r\n"))
+                sendMessage(cchannel,"YES SIR. I'M SORRY, SIR.")
             if TEMPUSR == "Winter_Fox" and wifox2 in item.lower():
-                s.send(str.encode("privmsg " + cchannel + " RIGHT AWAY, SIR.\r\n"))
+                sendMessage(cchannel,"RIGHT AWAY, SIR!")
                 sleep(1800)
             if TEMPUSR == "Winter_Fox" and wifox3 in item.lower():
-                s.send(str.encode("privmsg " + cchannel + " YES SIR, AND A KIND ONE, SIR!\r\n"))
+                sendMessage(cchannel,"YES, SIR! AND A KIND ONE, SIR!")
             if "PRIVMSG " + cchannel + " :!weasel" in item:
-                s.send(str.encode("privmsg " + cchannel + " The whole point of this bot is to shitpost as much as possible without being considered spammy or annoying. It is also there to help you shitpost more efficiently. Do dank memes and if they're dank enough and I don't respond to them, complain to weabot and if you're aggressive enough on his butthole I'll respond next time.\r\n"))
+                sendMessage(cchannel,weaseldescript)
             if TEMPUSR == "Phase" and phase1 in item:
-                s.send(str.encode("privmsg " + cchannel + " YOU CALLED ME MASTER? I AM HERE TO SERVE.\r\n"))
+                sendMessage(cchannel,"YOU CALLED ME, MASTER? I AM HERE TO SERVE.")
             if TEMPUSR == "Phase" and phase2 in item.lower():
-                s.send(str.encode("privmsg " + cchannel + " \x01ACTION blushes\x01\r\n"))
-                s.send(str.encode("privmsg " + cchannel + " But... Senpai... Here? In front of everybody?\r\n"))
+                sendMessage(cchannel,"\x01ACTION blushes\x01\r\n")
+                sendMessage(cchannel,"But... Senpai... Here? In front of everybody?\r\n")
             if TEMPUSR in KKK and "weaselbot: Shutdown Now!" in item:
                 s.send(str.encode("PART " + cchannel + "\r\n"))
                 sleep(10)
                 s.send(str.encode("JOIN " + cchannel + "\r\n"))
                 sleep(3)
-                s.send(str.encode("privmsg " + cchannel + " I'm sorry, Dave, I'm afraid I can't do that.\r\n"))
+                sendMessage(cchannel,"I'm sorry, Dave. I'm afraid I can't do that.")
             if TEMPUSR in KKK and "weaselbot: Please leave this channel" in item:
                 weaselbot.channelslst.remove(cchannel)
                 s.send(str.encode("PART " + cchannel + "\r\n"))
@@ -349,36 +354,38 @@ def dothething():
                 s.send(str.encode("JOIN " + TEMPCHANNEL + "\r\n"))
             if TEMPUSR in KKK and cmd.lower() + "say" in item.lower():
                 saywhat = msgpart.split()[1:]
-                s.send(str.encode("privmsg " + cchannel + " " + ' '.join(saywhat) + "\r\n"))
+                sendMessage(cchannel,' '.join(saywhat))
             if TEMPUSR in KKK and "weaselbot: Please say in " in item:
                 whatchannel = msgpart.split()[4]
                 saywhat2 = msgpart.split()[5:]
-                s.send(str.encode("privmsg " + whatchannel + " " + ' '.join(saywhat2) + "\r\n"))
+                sendMessage(whatchannel,' '.join(saywhat2))
             if TEMPUSR in KKK and cmd + "addKKK" in item:
                 KKKrecruit = msgpart.split()[1]
                 if KKKrecruit == "weaselbot":
-                    s.send(str.encode("privmsg " + cchannel + " Adding me to the KKK is too dangerous for our Universe.\r\n"))
+                    sendMessage(cchannel,"Adding me to the KKK is too dangerous for our Universe and the life within it.")
                 else:
                     KKK.append(KKKrecruit)
-                    s.send(str.encode("privmsg " + cchannel + " Added " + KKKrecruit + " to the Kool Kid's Klub!\r\n"))
+                    sendMessage(cchannel,"Added " + KKKrecruit + " to the Kool Kid's Klub!")
             if TEMPUSR == "weabot" and cmd + "delKKK" in item:
                 KKKdel = msgpart.split()[1]
                 KKK.remove(KKKdel)
-                s.send(str.encode("privmsg " + cchannel + " Removed naughty boy " + KKKdel + " from the Kool Kid's Klub!\r\n"))
+                sendMessage(cchannel,"Removed naughty boy " + KKKdel + " from the Kool Kid's Klub!")
              
 
 
             if deathword in item.lower() and cchannel == "#linuxmasterrace":
-                s.send(str.encode("privmsg " + cchannel + " You.. Killed....... Me...............\r\n"))
+                sendMessage(cchannel,"You.. Killed....... Me..............")
+                sleep(2)
+                sendMessage(cchannel,deathword + " was my.... only... weakness.......")
                 sleep(5)
                 for i in deathsounds:
                     stime = randint(1,6)
-                    s.send(str.encode("privmsg " + cchannel + " " + i + "\r\n"))
+                    sendMessage(cchannel,i)
                     sleep(stime)
-                s.send(str.encode("privmsg " + cchannel + " [final breath] gaaaaah....\r\n"))
+                sendMessage(cchannel,"[final breath] gaaaaaahhh........")
                 killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "******************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot #android #nofear")#linuxmasterrace #nofear #weaselbot #android")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "***************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot #android #nofear")#linuxmasterrace #nofear #weaselbot #android")
 
 weaselbot.makeChannelsList()
 weaselbot.connect()
