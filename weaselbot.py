@@ -298,7 +298,6 @@ def dothething():
                 for command in commands.keys():
                     if msgpart.split()[0].lower() == "." + command and cmd.lower() + command in item.lower():
                         if isinstance(commands[command],str):
-                            s.send(str.encode("privmsg " + cchannel + " " + commands[command] + "\r\n"))
                             sendMessage(cchannel,commands[command])
                         else:
                             x = randint(0,len(commands[command]) - 1)
@@ -385,7 +384,7 @@ def dothething():
                 sendMessage(cchannel,"[final breath] gaaaaaahhh........")
                 killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "***************", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot #android #nofear")#linuxmasterrace #nofear #weaselbot #android")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "**********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot #android #nofear")#linuxmasterrace #nofear #weaselbot #android")
 
 weaselbot.makeChannelsList()
 weaselbot.connect()
