@@ -76,7 +76,7 @@ class IRCBOT(object):
 
 
 """
-some porn for a good bot [CENSORED]
+some porn for a good bot [CENSORED] 
 it's furry but you won't mind right you are a weasel yourself.
 At this point of the script you have your own porn stash before you're even technically born, enjoy the shit out of it.
 """
@@ -367,8 +367,11 @@ def dothething():
                     sendMessage(cchannel,"Added " + KKKrecruit + " to the Kool Kid's Klub!")
             if TEMPUSR == "weabot" and cmd + "delKKK" in item:
                 KKKdel = msgpart.split()[1]
-                KKK.remove(KKKdel)
-                sendMessage(cchannel,"Removed naughty boy " + KKKdel + " from the Kool Kid's Klub!")
+                if KKKdel in KKK:
+                    KKK.remove(KKKdel)
+                    sendMessage(cchannel,"Removed naughty boy " + KKKdel + " from the Kool Kid's Klub!")
+                else:
+                    sendMessage(cchannel,KKKdel + " is not in the Kool Kid's Klub.")
              
 
 
@@ -384,7 +387,7 @@ def dothething():
                 sendMessage(cchannel,"[final breath] gaaaaaahhh........")
                 killYourself()
 
-weaselbot = IRCBOT("weaselbot", "weaselbot", "**********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot #android #nofear")#linuxmasterrace #nofear #weaselbot #android")
+weaselbot = IRCBOT("weaselbot", "weaselbot", "*********", "irc.snoonet.org", 6697, "Weasel Bot Peterson Junior 5th of the name", "#linuxmasterrace #weaselbot #android #nofear")#linuxmasterrace #nofear #weaselbot #android")
 
 weaselbot.makeChannelsList()
 weaselbot.connect()
