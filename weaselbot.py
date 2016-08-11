@@ -181,7 +181,7 @@ def dothething():
             if TEMPUSR in adminlist and cmd + "mkADMIN" in item:
                 newAdmin = msgpart.split()[1]
                 if newAdmin == "yourbot":
-                    sendMessage(cchannel,"Adding me to the KKK is too dangerous for our Universe and the life within it.")
+                    sendMessage(cchannel,"Adding me to the admin list is too dangerous for our Universe and the life within it.")
                 else:
                     adminlist.append(newAdmin)
                     sendMessage(cchannel,"Added " + newAdmin + " to the admin list!")
