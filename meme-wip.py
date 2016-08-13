@@ -1,7 +1,7 @@
 import praw
 
 r = praw.Reddit(user_agent='.meme command from bonkersbot, the irc-bot. Searches for imgur links on r/dankmemes to add to separate file')
-submissions = r.get_subreddit(dankmemes).get_hot(limit=5)
+submissions = r.get_subreddit('dankmemes').get_hot(limit=5)
 
 MIN_SCORE = 200
 
