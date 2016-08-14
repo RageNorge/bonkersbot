@@ -152,7 +152,7 @@ def dothething():
                 #replies bonkersbot git repo
                 "gitbonkers":"https://github.com/RageNorge/bonkersbot",
                 "purpose":"I pass the butter",
-                "creator":"RageNorge, our attack helicopter, lord and saviour. weabot, someone who is not a weaboo",
+                "creator":"RageNorge, our attack helicopter, lord and saviour. weabot, someone who is a weaboo",
                 "magic":"http://www.reactiongifs.com/r/mgc.gif",
                 #if the bot sees .example in the beginning of the message and there are no other words following, he has a 50/50 chance of printing either "This is an example" or "This is another example"
         }
